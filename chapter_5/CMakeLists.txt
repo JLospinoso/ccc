@@ -1,0 +1,21 @@
+add_executable(listing_5_4 listing_5_4.cpp)
+add_executable(listing_5_5 listing_5_5.cpp)
+add_executable(listing_5_7 listing_5_7.cpp)
+add_executable(listing_5_11 listing_5_11.cpp)
+add_executable(listing_5_12 listing_5_12.cpp)
+add_executable(listing_5_13 listing_5_13.cpp)
+add_executable(listing_5_15 listing_5_15.cpp)
+add_executable(listing_5_17 listing_5_17.cpp)
+add_executable(listing_5_18 listing_5_18.cpp)
+add_executable(listing_5_33 listing_5_33.cpp)
+
+# Concepts support in GCC
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+  #TODO: Incorporate origin library as cmake module https://github.com/asutton/origin
+  add_executable(listing_5_21 listing_5_21.cpp)
+  add_executable(listing_5_22 listing_5_22.cpp)
+  # add_executable(listing_5_26 listing_5_26.cpp)
+  set_source_files_properties(listing_5_21.cpp PROPERTIES COMPILE_FLAGS "-std=c++17 -fconcepts")
+  set_source_files_properties(listing_5_22.cpp PROPERTIES COMPILE_FLAGS "-std=c++17 -fconcepts")
+  # set_source_files_properties(listing_5_26.cpp PROPERTIES COMPILE_FLAGS "-std=c++17 -fconcepts")
+endif()
