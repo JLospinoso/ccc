@@ -1,7 +1,6 @@
 ﻿#include <cstdio>
 #include <cstring>
 #include <stdexcept>
-#include <utility>
 
 struct SimpleString {
   SimpleString(size_t max_size)
@@ -22,14 +21,6 @@ struct SimpleString {
     length{ other.length } {
     std::strncpy(buffer, other.buffer, max_size);
   }
-  SimpleString(SimpleString&& other) noexcept
-    : max_size(other.max_size),
-    buffer(other.buffer),
-    length(other.length) {
-    other.length = 0;
-    other.buffer = nullptr;
-    other.max_size = 0;
-  }
   SimpleString& operator=(const SimpleString& other) {
     if (this == &other) return *this;
     const auto new_buffer = new char[other.max_size];
@@ -38,17 +29,6 @@ struct SimpleString {
     length = other.length;
     max_size = other.max_size;
     std::strncpy(buffer, other.buffer, max_size);
-    return *this;
-  }
-  SimpleString& operator=(SimpleString&& other) noexcept {
-    if (this == &other) return *this;
-    delete[] buffer;
-    buffer = other.buffer;
-    length = other.length;
-    max_size = other.max_size;
-    other.buffer = nullptr;
-    other.length = 0;
-    other.max_size = 0;
     return *this;
   }
   void print(const char* tag) const {
@@ -71,12 +51,12 @@ private:
 
 int main() {
   SimpleString a{ 50 };
-  a.append_line("Sorry for the");
+  a.append_line("We apologise for the");
   SimpleString b{ 50 };
   b.append_line("Last message");
   a.print("a");
   b.print("b");
-  b = std::move(a);
-  // a is "moved-from"
+  b = a;
+  a.print("a");
   b.print("b");
 }

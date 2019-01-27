@@ -6,22 +6,22 @@ struct SimpleString {
   SimpleString(size_t max_size)
     : max_size{ max_size },
     length{} {
-    if (max_size == 0) {
-      throw std::runtime_error{ "Max size must be at least 1." };
-    }
+      if (max_size == 0) {
+        throw std::runtime_error{ "Max size must be at least 1." };
+      }
     buffer = new char[max_size];
-    buffer[0] = 0;
+      buffer[0] = 0;
   }
   ~SimpleString() {
     delete[] buffer;
   }
   void print(const char* tag) const {
-    printf("%s: %s", tag, buffer);
+      printf("%s: %s", tag, buffer);
   }
   bool append_line(const char* x) {
     const auto x_len = strlen(x);
     if (x_len + length + 2 > max_size) return false;
-    std::strncpy(buffer + length, x, max_size - length);
+    strncpy(buffer + length, x, max_size - length);
     length += x_len;
     buffer[length++] = '\n';
     buffer[length] = 0;
@@ -48,21 +48,8 @@ private:
   SimpleString string;
 };
 
-void fn_c() {
-  SimpleStringOwner c{ "cccccccccc" };
-}
-
-void fn_b() {
-  SimpleStringOwner b{ "b" };
-  fn_c();
-}
-
 int main() {
-  try {
-    SimpleStringOwner a{ "a" };
-    fn_b();
-    SimpleStringOwner d{ "d" };
-  } catch (std::exception& e) {
-    printf("Exception: %s\n", e.what());
-  }
+  SimpleStringOwner x{ "x" };
+  printf("x is alive\n");
+  return 0;
 }
