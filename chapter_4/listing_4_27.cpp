@@ -21,16 +21,6 @@ struct SimpleString {
     length{ other.length } {
     std::strncpy(buffer, other.buffer, max_size);
   }
-  SimpleString& operator=(const SimpleString& other) {
-    if (this == &other) return *this;
-    const auto new_buffer = new char[other.max_size];
-    delete[] buffer;
-    buffer = new_buffer;
-    length = other.length;
-    max_size = other.max_size;
-    std::strncpy(buffer, other.buffer, max_size);
-    return *this;
-  }
   void print(const char* tag) const {
     printf("%s: %s", tag, buffer);
   }
@@ -49,14 +39,12 @@ private:
   size_t length;
 };
 
+void foo(SimpleString x) {
+  x.append_line("This change is lost.");
+}
+
 int main() {
-  SimpleString a{ 50 };
-  a.append_line("We apologise for the");
-  SimpleString b{ 50 };
-  b.append_line("Last message");
-  a.print("a");
-  b.print("b");
-  b = a;
-  a.print("a");
-  b.print("b");
+  SimpleString a{ 20 };
+  foo(a); // Invokes copy constructor
+  a.print("Still empty");
 }
