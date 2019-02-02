@@ -1,18 +1,39 @@
-﻿#include <cstddef>
 #include <cstdio>
 
-template<typename T>
-T mean(T* values, size_t length) {
-  T result{};
-  for (size_t i{}; i<length; i++) {
-    result += values[i];
+struct Logger {
+  virtual ~Logger() = default;
+  virtual void log_transfer(long from, long to, double amount) = 0;
+};
+
+struct ConsoleLogger : Logger {
+  void log_transfer(long from, long to, double amount) override {
+    printf("[cons] %ld -> %ld: %f\n", from, to, amount);
   }
-  return result / length;
-}
+};
+
+struct FileLogger : Logger {
+  void log_transfer(long from, long to, double amount) override {
+    printf("[file] %ld,%ld,%f\n", from, to, amount);
+  }
+};
+
+struct Bank {
+    void set_logger(Logger* new_logger) {
+        logger = new_logger;
+    }
+    void make_transfer(long from, long to, double amount) {
+        if (logger) logger->log_transfer(from, to, amount);
+    }
+private:
+    Logger* logger{};
+};
 
 int main() {
-  auto value1 = 0.0;
-  auto value2 = 1.0;
-  double* values[]{ &value1, &value2 };
-  //mean(values, 2); // Bang!
+    ConsoleLogger console_logger;
+    FileLogger file_logger;
+    Bank bank;
+    bank.set_logger(&console_logger);
+    bank.make_transfer(1000, 2000, 49.95);
+    bank.set_logger(&file_logger);
+    bank.make_transfer(2000, 4000, 20.00);
 }

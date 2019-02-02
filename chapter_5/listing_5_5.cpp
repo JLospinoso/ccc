@@ -1,6 +1,8 @@
-﻿#include <cstdio>
+struct BaseClass {};
+  struct DerivedClass : BaseClass {};
+  void all_about_that(DerivedClass& derived) {}
 
-int main() {
-  auto timer = reinterpret_cast<const unsigned long*>(0x1000);
-  printf("Timer is %lu.", *timer);
+  int main() {
+  BaseClass base;
+  //all_about_that(base); // No! Trouble!
 }

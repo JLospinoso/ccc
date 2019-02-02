@@ -1,4 +1,4 @@
-﻿#include <cstdio>
+#include <cstdio>
 #include <cstring>
 #include <stdexcept>
 
@@ -51,7 +51,7 @@ private:
 
 int main() {
   SimpleString a{ 50 };
-  a.append_line("Sorry for the");
+  a.append_line("We apologise for the");
   SimpleString b{ 50 };
   b.append_line("Last message");
   a.print("a");
