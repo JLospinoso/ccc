@@ -13,6 +13,8 @@
 
 # Build the Examples
 
+[![Docker Repository on Quay](https://quay.io/repository/jlospinoso/ccc/status "Docker Repository on Quay")](https://quay.io/repository/jlospinoso/ccc)
+
 First, clone this repository:
 
 ```
