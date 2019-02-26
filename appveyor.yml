@@ -3,9 +3,9 @@ image: Ubuntu
 install:
 - sh: git submodule update --init --recursive
 - sh: sudo apt-get update
-- sh: sudo apt-get install libboost-all-dev
+- sh: sudo apt-get install -y libboost-all-dev
 build_script:
 - sh: mkdir build
 - sh: cd build
-- sh: cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON
+- sh: cmake .. -DCMAKE_BUILD_TYPE=Release
 - sh: make -j2
