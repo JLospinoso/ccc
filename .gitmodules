@@ -4,3 +4,6 @@
 [submodule "third_party/catchorg/Catch2"]
 	path = third_party/catchorg/Catch2
 	url = https://github.com/catchorg/Catch2
+[submodule "third_party/google/googletest"]
+	path = third_party/google/googletest
+	url = https://github.com/google/googletest

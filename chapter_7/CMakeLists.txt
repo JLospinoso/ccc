@@ -1,3 +1,7 @@
+cmake_minimum_required(VERSION 3.1...3.13)
+
+project(chapter_7 LANGUAGES CXX)
+
 add_executable(listing_7_a listing_7_a.cpp)
 add_executable(listing_7_b listing_7_b.cpp)
 add_executable(listing_7_1 listing_7_1.cpp)
