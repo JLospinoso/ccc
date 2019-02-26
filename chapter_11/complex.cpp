@@ -1,5 +1,5 @@
 ﻿#define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+#include <catch2/catch.hpp>
 #include <complex>
 
 TEST_CASE("std::complex::complex has a real and imaginary component") {

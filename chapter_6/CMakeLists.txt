@@ -11,11 +11,12 @@ add_executable(listing_6_33 listing_6_33.cpp)
 
 # Concepts support in GCC
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-  #TODO: Incorporate origin library as cmake module https://github.com/asutton/origin
   add_executable(listing_6_21 listing_6_21.cpp)
   add_executable(listing_6_22 listing_6_22.cpp)
   # add_executable(listing_6_26 listing_6_26.cpp)
-  set_source_files_properties(listing_6_21.cpp PROPERTIES COMPILE_FLAGS "-std=c++17 -fconcepts")
-  set_source_files_properties(listing_6_22.cpp PROPERTIES COMPILE_FLAGS "-std=c++17 -fconcepts")
-  # set_source_files_properties(listing_6_26.cpp PROPERTIES COMPILE_FLAGS "-std=c++17 -fconcepts")
+  target_compile_features(listing_6_21 PRIVATE cxx_std_20)
+  target_compile_features(listing_6_22 PRIVATE cxx_std_20)
+  set_source_files_properties(listing_6_21.cpp PROPERTIES COMPILE_FLAGS "-fconcepts")
+  set_source_files_properties(listing_6_22.cpp PROPERTIES COMPILE_FLAGS "-fconcepts")
+  # set_source_files_properties(listing_6_26.cpp PROPERTIES COMPILE_FLAGS "-fconcepts")
 endif()

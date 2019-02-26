@@ -1,6 +1,6 @@
-cmake_minimum_required (VERSION 3.11)
+cmake_minimum_required (VERSION 3.1...3.13)
 
-project(ccc)
+project(ccc LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -16,7 +16,11 @@ set(Boost_USE_MULTI_THREADED ON)
 find_package(Boost COMPONENTS date_time system filesystem unit_test_framework REQUIRED)
 
 include_directories(${Boost_INCLUDE_DIR})
-include_directories(catch)
+
+add_library(Catch2 INTERFACE)
+target_include_directories(Catch2 INTERFACE ${CMAKE_SOURCE_DIR}/third_party/catchorg/Catch2/single_include)
+
+enable_testing()
 
 add_subdirectory(chapter_1)
 add_subdirectory(chapter_2)
