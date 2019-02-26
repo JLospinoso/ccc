@@ -1,12 +1,12 @@
 version: '{build}'
 image: Ubuntu
 environment:
-  CXX: g++-7
+  CXX: g++-8
 install:
 - sh: git submodule update --init --recursive
 - sh: sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 - sh: sudo apt-get update
-- sh: sudo apt-get install -y g++-7
+- sh: sudo apt-get install -y g++-8
 - sh: sudo apt-get install -y libboost-all-dev
 build_script:
 - sh: mkdir build
