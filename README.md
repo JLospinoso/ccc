@@ -1,5 +1,8 @@
 [![C++ Crash Course](http://ccc.codes/cppcc.png "C++ Crash Course")](http://ccc.codes/)
 
+**Repace this line with your own BEFORE merging or just remove this line if you don't want it**
+[![Build status](https://ci.appveyor.com/api/projects/status/00k33e3awk3f7ryc/branch/master?svg=true)](https://ci.appveyor.com/project/xorz57/ccc/branch/master)
+
 # Get the Book
 
 [C++ Crash Course is currently in Early Access.](https://nostarch.com/cppcrashcourse)

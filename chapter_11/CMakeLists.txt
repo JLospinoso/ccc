@@ -1,3 +1,7 @@
+cmake_minimum_required(VERSION 3.1...3.13)
+
+project(chapter_11 LANGUAGES CXX)
+
 add_executable(complex complex.cpp)
 add_executable(container container.cpp)
 add_executable(data_structs data_structs.cpp)

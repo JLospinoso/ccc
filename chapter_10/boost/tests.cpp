@@ -1,6 +1,5 @@
 #define BOOST_TEST_MODULE AutoBrake
-
-#include <boost/test/unit_test.hpp>
+#include <boost/test/included/unit_test.hpp>
 #include <stdexcept>
 #include <functional>
 
