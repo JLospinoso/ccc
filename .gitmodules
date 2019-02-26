@@ -1,0 +1,6 @@
+[submodule "third_party/asutton/origin"]
+	path = third_party/asutton/origin
+	url = https://github.com/asutton/origin
+[submodule "third_party/catchorg/Catch2"]
+	path = third_party/catchorg/Catch2
+	url = https://github.com/catchorg/Catch2
