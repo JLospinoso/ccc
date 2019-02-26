@@ -1,7 +1,7 @@
 version: '{build}'
 image: Ubuntu
 environment:
-- CXX: g++-6
+- CXX: "g++-6"
 install:
 - sh: git submodule update --init --recursive
 - sh: sudo add-apt-repository ppa:ubuntu-toolchain-r/test
