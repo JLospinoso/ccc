@@ -14,6 +14,7 @@
 # Build the Examples
 
 [![Docker Repository on Quay](https://quay.io/repository/jlospinoso/ccc/status "Docker Repository on Quay")](https://quay.io/repository/jlospinoso/ccc)
+[![Build status](https://ci.appveyor.com/api/projects/status/54rewjdq923xcven?svg=true)](https://ci.appveyor.com/project/JLospinoso/ccc)
 
 First, clone this repository:
 
