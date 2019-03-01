@@ -37,16 +37,16 @@ TEST_CASE("DateTime supports basic calendar functions") {
 
 TEST_CASE("date supports subtraction") {
   boost::gregorian::date d1{ 1986, 9, 15 };
-  boost::gregorian::date d2{ 2018, 1, 19 };
+  boost::gregorian::date d2{ 2019, 8, 1 };
   auto duration = d2 - d1;
-  REQUIRE(duration.days() == 11449);
+  REQUIRE(duration.days() == 12008);
 }
 
 TEST_CASE("date and date_duration support addition") {
   boost::gregorian::date d1{ 1986, 9, 15 };
-  boost::gregorian::date_duration dur{ 11449 };
+  boost::gregorian::date_duration dur{ 12008 };
   auto d2 = d1 + dur;
-  REQUIRE(d2 == boost::gregorian::from_string("2018/1/19"));
+  REQUIRE(d2 == boost::gregorian::from_string("2019/8/1"));
 }
 
 TEST_CASE("DateTime supports periods") {
