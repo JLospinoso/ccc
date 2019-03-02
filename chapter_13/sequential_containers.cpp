@@ -143,6 +143,7 @@ TEST_CASE("std::vector insert places new elements") {
   auto second_element = zeros.begin() + 2;
   zeros.insert(second_element, 10);
   REQUIRE(zeros[2] == 10);
+  REQUIRE(zeros.size() == 4);
 }
 
 
@@ -278,16 +279,16 @@ TEST_CASE("std::priority_queue supports push/pop") {
 #include <bitset>
 
 TEST_CASE("std::bitset supports integer initialization") {
-  std::bitset<4> bs(0b0110);
+  std::bitset<4> bs(0b0101);
   REQUIRE_FALSE(bs[0]);
   REQUIRE(bs[1]);
-  REQUIRE(bs[2]);
-  REQUIRE_FALSE(bs[3]);
+  REQUIRE_FALSE(bs[2]);
+  REQUIRE(bs[3]);
 }
 
 TEST_CASE("std::bitset supports string initialization") {
-  std::bitset<4> bs1(0b0110);
-  std::bitset<4> bs2("0110");
+  std::bitset<4> bs1(0b0101);
+  std::bitset<4> bs2("0101");
   REQUIRE(bs1 == bs2);
 }
 

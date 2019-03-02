@@ -284,3 +284,4 @@ __pycache__/
 build-win/*
 build-mac/*
 build-nix/*
+cmake-build-debug/

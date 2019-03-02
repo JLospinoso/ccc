@@ -34,11 +34,11 @@ TEST_CASE("std::set allows access") {
   std::set<int> fib{ 1, 1, 2, 3, 5 };
   SECTION("with find") {
     REQUIRE(*fib.find(3) == 3);
-    REQUIRE(fib.find(8) == fib.end());
+    REQUIRE(fib.find(100) == fib.end());
   }
   SECTION("with count") {
     REQUIRE(fib.count(3) == 1);
-    REQUIRE(fib.count(8) == 0);
+    REQUIRE(fib.count(100) == 0);
   }
   SECTION("with equal_range") {
     auto pair_itr = fib.equal_range(3);
