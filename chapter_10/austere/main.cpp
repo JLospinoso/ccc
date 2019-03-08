@@ -74,7 +74,7 @@ private:
   double speed_mps;
 };
 
-void assert(bool statement, const char* message) {
+void assert_that(bool statement, const char* message) {
   if (!statement) throw runtime_error(message);
 }
 
@@ -92,13 +92,13 @@ int run_test(void(*unit_test)(), const char* name) {
 void initial_speed_is_zero() {
   MockServiceBus bus{};
   AutoBrake auto_break{ bus };
-  assert(auto_break.get_speed_mps() == 0, "speed not equal 0");
+  assert_that(auto_break.get_speed_mps() == 0, "speed not equal 0");
 }
 
 void initial_sensitivity_is_five() {
   MockServiceBus bus{};
   AutoBrake auto_break{ bus };
-  assert(auto_break.get_collision_threshold_s() == 5, "sensitivity is not 5");
+  assert_that(auto_break.get_collision_threshold_s() == 5, "sensitivity is not 5");
 }
 
 void sensitivity_greater_than_1() {
@@ -109,7 +109,7 @@ void sensitivity_greater_than_1() {
   } catch (const exception&) {
     return;
   }
-  assert(false, "no exception thrown");
+  assert_that(false, "no exception thrown");
 }
 
 void speed_is_saved() {
@@ -117,11 +117,11 @@ void speed_is_saved() {
   AutoBrake auto_break{ bus };
 
   bus.speed_update_callback(SpeedUpdate{ 100L });
-  assert(100L == auto_break.get_speed_mps(), "speed was not saved to 100");
+  assert_that(100L == auto_break.get_speed_mps(), "speed was not saved to 100");
   bus.speed_update_callback(SpeedUpdate{ 50L });
-  assert(50L == auto_break.get_speed_mps(), "speed was not saved to 50");
+  assert_that(50L == auto_break.get_speed_mps(), "speed was not saved to 50");
   bus.speed_update_callback(SpeedUpdate{ 0L });
-  assert(0L == auto_break.get_speed_mps(), "speed was not saved to 0");
+  assert_that(0L == auto_break.get_speed_mps(), "speed was not saved to 0");
 }
 
 void no_alert_when_not_imminent() {
@@ -130,7 +130,7 @@ void no_alert_when_not_imminent() {
   auto_break.set_collision_threshold_s(2L);
   bus.speed_update_callback(SpeedUpdate{ 100L });
   bus.car_detected_callback(CarDetected{ 1000L, 50L });
-  assert(bus.commands_published == 0, "break commands were published");
+  assert_that(bus.commands_published == 0, "break commands were published");
 }
 
 void alert_when_imminent() {
@@ -139,8 +139,8 @@ void alert_when_imminent() {
   auto_break.set_collision_threshold_s(10L);
   bus.speed_update_callback(SpeedUpdate{ 100L });
   bus.car_detected_callback(CarDetected{ 100L, 0L });
-  assert(bus.commands_published == 1, "1 break command was not published");
-  assert(bus.last_command.time_to_collision_s == 1L, "time to collision"
+  assert_that(bus.commands_published == 1, "1 break command was not published");
+  assert_that(bus.last_command.time_to_collision_s == 1L, "time to collision"
                                                "not computed correctly.");
 }
 
