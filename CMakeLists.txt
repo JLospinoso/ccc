@@ -98,4 +98,6 @@ add_subdirectory(chapter_13)
 add_subdirectory(chapter_14)
 add_subdirectory(chapter_15)
 add_subdirectory(chapter_16)
-add_subdirectory(chapter_17)
+if(MSVC) # <filesystem> not available on some *nix systems.
+    add_subdirectory(chapter_17)
+endif(MSVC)
