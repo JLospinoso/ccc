@@ -280,10 +280,10 @@ TEST_CASE("std::priority_queue supports push/pop") {
 
 TEST_CASE("std::bitset supports integer initialization") {
   std::bitset<4> bs(0b0101);
-  REQUIRE_FALSE(bs[0]);
-  REQUIRE(bs[1]);
-  REQUIRE_FALSE(bs[2]);
-  REQUIRE(bs[3]);
+  REQUIRE(bs[0] == true);
+  REQUIRE(bs[1] == false);
+  REQUIRE(bs[2] == true);
+  REQUIRE(bs[3] == false);
 }
 
 TEST_CASE("std::bitset supports string initialization") {
