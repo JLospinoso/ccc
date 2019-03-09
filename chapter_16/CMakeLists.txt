@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.1...3.13)
+
+project(chapter_16 LANGUAGES CXX)
+
+add_executable(listing_16_1 listing_16_1.cpp)
+add_executable(listing_16_2 listing_16_2.cpp)
+add_executable(listing_16_3 listing_16_3.cpp)
+add_executable(listing_16_5 listing_16_5.cpp)
+add_executable(listing_16_7 listing_16_7.cpp)
+add_executable(listing_16_8 listing_16_8.cpp)
+add_executable(listing_16_9 listing_16_9.cpp)
+add_executable(listing_16_10 listing_16_10.cpp)
+add_executable(listing_16_14 listing_16_14.cpp)
+add_executable(listing_16_15 listing_16_15.cpp)
+add_executable(listing_16_16 listing_16_16.cpp)
+add_executable(listing_16_17 listing_16_17.cpp)
+add_executable(listing_16_18 listing_16_18.cpp)
+add_executable(listing_16_19 listing_16_19.cpp)
+add_executable(streams streams.cpp)
+
+target_link_libraries(streams PRIVATE Catch2 ${Boost_SYSTEM_LIBRARY})
