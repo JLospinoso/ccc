@@ -12,4 +12,4 @@ add_executable(listing_17_7 listing_17_7.cpp)
 add_executable(listing_17_8 listing_17_8.cpp)
 add_executable(listing_17_9 listing_17_9.cpp)
 
-target_link_libraries(filesystem PRIVATE ${Boost_SYSTEM_LIBRARY})
+target_link_libraries(filesystem PRIVATE stdc++fs ${Boost_SYSTEM_LIBRARY})

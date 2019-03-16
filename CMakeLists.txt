@@ -17,8 +17,9 @@ endif(MSVC)
 set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTI_THREADED ON)
 # set(Boost_USE_STATIC_RUNTIME ON)
+add_definitions(-DBOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE)
 
-find_package(Boost 1.60 REQUIRED COMPONENTS date_time system filesystem unit_test_framework)
+find_package(Boost 1.60 REQUIRED COMPONENTS date_time system filesystem unit_test_framework program_options)
 
 include_directories(${Boost_INCLUDE_DIR})
 
@@ -99,5 +100,9 @@ add_subdirectory(chapter_14)
 add_subdirectory(chapter_15)
 add_subdirectory(chapter_16)
 if(MSVC) # <filesystem> not available on some *nix systems.
-    add_subdirectory(chapter_17)
+#    add_subdirectory(chapter_17)
 endif(MSVC)
+add_subdirectory(chapter_18)
+add_subdirectory(chapter_19)
+add_subdirectory(chapter_20)
+add_subdirectory(chapter_21)
