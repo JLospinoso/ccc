@@ -33,7 +33,7 @@ TEST_CASE("reduce") {
   const auto result1 = std::reduce(nums.begin(), nums.end(), -1);
   REQUIRE(result1 == 5);
 
-  const auto result2 = std::reduce(nums.begin(), nums.end(), 2, multiplies<>());
+  const auto result2 = reduce(nums.begin(), nums.end(), 2, multiplies<>());
   REQUIRE(result2 == 12);
 }
 
