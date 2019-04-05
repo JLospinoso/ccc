@@ -22,7 +22,7 @@ set(Boost_USE_MULTI_THREADED ON)
 # set(Boost_USE_STATIC_RUNTIME ON)
 add_definitions(-DBOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE)
 
-find_package(Boost 1.60 REQUIRED COMPONENTS date_time system filesystem unit_test_framework program_options)
+find_package(Boost 1.60 REQUIRED COMPONENTS date_time system filesystem unit_test_framework program_options thread)
 
 include_directories(${Boost_INCLUDE_DIR})
 
