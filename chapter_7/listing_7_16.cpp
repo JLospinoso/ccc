@@ -17,7 +17,7 @@ constexpr uint8_t min(uint8_t a, uint8_t b, uint8_t c) {
 }
 
 constexpr float modulo(float dividend, float divisor) {
-    auto quotient = dividend / divisor;
+    const auto quotient = dividend / divisor;
     return divisor * (quotient - static_cast<uint8_t>(quotient));
 }
 
@@ -27,11 +27,11 @@ struct Color {
 
 constexpr Color rgb_to_hsv(uint8_t r, uint8_t g, uint8_t b) {
   Color c{};
-  auto c_max = max(r, g, b);
+  const auto c_max = max(r, g, b);
   c.V = c_max / 255.0f;
 
-  auto c_min = min(r, g, b);
-  auto delta = c.V - c_min / 255.0f;
+  const auto c_min = min(r, g, b);
+  const auto delta = c.V - c_min / 255.0f;
   c.S = c_max == 0 ? 0 : delta / c.V;
 
   if (c_max == c_min) {

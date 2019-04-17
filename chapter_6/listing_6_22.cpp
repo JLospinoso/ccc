@@ -13,7 +13,7 @@ concept bool Averageable() {
 }
 
 template<Averageable T>
-T mean(T* values, size_t length) {
+T mean(const T* values, size_t length) {
   T result{};
   for (size_t i{}; i<length; i++) {
     result += values[i];
@@ -24,6 +24,6 @@ T mean(T* values, size_t length) {
 int main() {
   auto value1 = 0.0;
   auto value2 = 1.0;
-  double* values[] { &value1, &value2 };
+  const double* values[] { &value1, &value2 };
   // mean(values, 2); // Causes compiler error.
 }
