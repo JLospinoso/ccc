@@ -1,17 +1,30 @@
-﻿#include <cstdio>
+#include <cstdio>
+#include <cstdint>
 
-namespace BroopKidron13::Shaltanac {
-    enum class Color {
-    Mauve,
-    Pink,
-    Russet
-  };
-}
+struct RandomNumberGenerator {
+  explicit RandomNumberGenerator(uint32_t seed)
+    : iterations{}, number { seed } {}
+  uint32_t next();
+  size_t get_iterations() const;
+private:
+  size_t iterations;
+  uint32_t number;
+};
 
 int main() {
-  const auto shaltanac_grass{ BroopKidron13::Shaltanac::Color::Russet };
-  if (shaltanac_grass == BroopKidron13::Shaltanac::Color::Russet) {
-    printf("The other Shaltanac's joopleberry shrub is always "
-           "a more mauvey shade of pinky russet.");
+  RandomNumberGenerator rng{ 0x4c4347 };
+  while (rng.next() != 0x474343) {
+    // Do nothing...
   }
+  printf("%zd", rng.get_iterations());
+}
+
+uint32_t RandomNumberGenerator::next() {
+  ++iterations;
+  number = 0x3FFFFFFF & (0x41C64E6D * number + 12345) % 0x80000000;
+  return number;
+}
+
+size_t RandomNumberGenerator::get_iterations() const {
+  return iterations;
 }

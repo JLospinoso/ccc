@@ -1,16 +1,35 @@
 #include <cstdio>
-#include <cstdint>
 
-bool double_return_overflow(uint8_t& x) {
-  const auto original = x;
-  x *= 2;
-  return original > x;
+enum class Color {
+  Mauve,
+  Pink,
+  Russet
+};
+
+struct Result {
+  const char* name;
+  Color color;
+};
+
+Result observe_shrub(const char* name) {
+  return Result{ name, Color::Russet };
 }
 
 int main() {
-  uint8_t x{ 1 };
-  printf("uint8_t:\n===\n");
-  while (!double_return_overflow(x)) {
-    printf("%u ", x);
-  }
+  const char* description;
+  switch (const auto result = observe_shrub("Zaphod"); result.color) {
+  case Color::Mauve: {
+    description = "mauvey shade of pinky russet";
+    break;
+  } case Color::Pink: {
+    description = "pinky shade of mauvey russet";
+    break;
+  } case Color::Russet: {
+    description = "russety shade of pinky mauve";
+    break;
+  } default: {
+    description = "enigmatic shade of whitish black";
+  }}
+  printf("The other Shaltanac's joopleberry shrub is"
+         " always a more %s.", description);
 }

@@ -6,10 +6,10 @@ struct FibonacciIterator {
   }
 
   FibonacciIterator& operator++() {
-    auto tmp = current;
-      current += last;
-      last = tmp;
-      return *this;
+    const auto tmp = current;
+    current += last;
+    last = tmp;
+    return *this;
   }
 
   int operator*() const {
@@ -32,11 +32,10 @@ private:
 };
 
 int main() {
-  for (auto i : FibonacciRange{ 5000 }) {
-    if (i == 21) {
-        printf("*** ");
-        break;
-    }
+  FibonacciRange range{ 5000 };
+  const auto end = range.end();
+  for (auto x = range.begin(); x != end ; ++x) {
+    const auto i = *x;
     printf("%d ", i);
   }
 }

@@ -1,23 +1,29 @@
-﻿#include <cstdio>
-
+#include <cstdio>
 namespace BroopKidron13::Shaltanac {
+
   enum class Color {
     Mauve,
     Pink,
     Russet
   };
+
+  struct JoopleberryShrub {
+    const char* name;
+    Color shade;
+  };
+
+  bool is_more_mauvey(const JoopleberryShrub& shrub) {
+    return shrub.shade == Color::Mauve;
+  }
 }
 
-using String = const char[260];
-using ShaltanacColor = BroopKidron13::Shaltanac::Color;
-
+using namespace BroopKidron13::Shaltanac;
 int main() {
-  const auto my_color{ ShaltanacColor::Russet };
-    String saying{
-    "The other Shaltanac's joopleberry shrub is"
-    " always a more mauvey shade of pinky russet."
+  const JoopleberryShrub yours{
+    "The other Shaltanac",
+    Color::Mauve
   };
-  if (my_color == ShaltanacColor::Russet) {
-    printf("%s", saying);
+  if (is_more_mauvey(yours)) {
+    printf("%s's joopleberry shrub is always a more mauvey shade of pinky russet.", yours.name);
   }
 }

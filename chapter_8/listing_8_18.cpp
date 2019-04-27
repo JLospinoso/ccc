@@ -1,35 +1,30 @@
 #include <cstdio>
+#include <stdexcept>
+#include <type_traits>
 
-enum class Color {
-  Mauve,
-  Pink,
-  Russet
-};
-
-struct Result {
-  const char* name;
-  Color color;
-};
-
-Result observe_shrub(const char* name) {
-  return Result{ name, Color::Russet };
+template <typename T>
+auto value_of(T x) {
+  if constexpr (std::is_pointer<T>::value) {
+    if (!x) throw std::runtime_error{ "Null pointer dereference." };
+    return *x;
+  } else {
+    return x;
+  }
 }
 
 int main() {
-  char* description;
-  switch (auto result = observe_shrub("Zaphod"); result.color) {
-  case Color::Mauve: {
-    description = "mauvey shade of pinky russet";
-    break;
-  } case Color::Pink: {
-    description = "pinky shade of mauvey russet";
-    break;
-  } case Color::Russet: {
-    description = "russety shade of pinky mauve";
-    break;
-  } default: {
-    description = "enigmatic shade of whitish black";
-  }}
-  printf("The other Shaltanac's joopleberry shrub is"
-         " always a more %s.", description);
+  unsigned long level{ 8998 };
+  auto level_ptr = &level;
+  auto &level_ref = level;
+  printf("Power level = %lu\n", value_of(level_ptr));
+  ++*level_ptr;
+  printf("Power level = %lu\n", value_of(level_ref));
+  ++level_ref;
+  printf("It's over %lu!\n", value_of(level++));
+  try {
+    level_ptr = nullptr;
+    value_of(level_ptr);
+  } catch (const std::exception& e) {
+    printf("Exception: %s\n", e.what());
+  }
 }

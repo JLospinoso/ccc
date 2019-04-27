@@ -10,7 +10,7 @@ bool double_return_overflow(uint8_t& x) {
 int main() {
   uint8_t x{ 1 };
   printf("uint8_t:\n===\n");
-  while (!double_return_overflow(x)) {
+  do {
     printf("%u ", x);
-  }
+  } while (!double_return_overflow(x));
 }

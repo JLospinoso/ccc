@@ -16,10 +16,9 @@ TextFile read_text_file(const char* path) {
 }
 
 int main() {
-  auto[success, contents, length] = read_text_file("REAMDE.txt");
-    if (success) {
-      printf("Read %zd bytes: %s\n", length, contents);
-    } else {
-      printf("Failed to open REAMDE.txt.");
-    }
+  if (const auto[success, contents, length] = read_text_file("REAMDE.txt"); success) {
+    printf("Read %zd bytes: %s\n", length, contents);
+  } else {
+    printf("Failed to open REAMDE.txt.");
+  }
 }

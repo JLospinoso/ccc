@@ -1,14 +1,25 @@
 #include <cstdio>
-#include <stdexcept>
 
-[[noreturn]] void pitcher() {
-  throw std::runtime_error{ "Knuckleball." };
+struct TextFile {
+  bool success;
+  const char* data;
+  size_t n_bytes;
+};
+
+TextFile read_text_file(const char* path) {
+  const static char contents[]{ "Sometimes the goat is you." };
+  return TextFile{
+    true,
+    contents,
+    sizeof(contents)
+  };
 }
 
 int main() {
-  try {
-    pitcher();
-  } catch(const std::exception& e) {
-    printf("exception: %s\n", e.what());
+  const auto[success, contents, length] = read_text_file("REAMDE.txt");
+  if (success) {
+    printf("Read %zd bytes: %s\n", length, contents);
+  } else {
+    printf("Failed to open REAMDE.txt.");
   }
 }
