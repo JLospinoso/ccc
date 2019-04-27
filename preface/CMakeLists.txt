@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.1...3.13)
+
+project(preface LANGUAGES CXX)
+
+add_executable(listing_p_1 listing_p_1.cpp)
+add_executable(listing_p_3 listing_p_3.cpp)
+add_executable(listing_p_8 listing_p_8.cpp)
+add_executable(listing_p_9 listing_p_9.cpp)
+add_executable(listing_p_10 listing_p_10.cpp)
+add_executable(listing_p_12 listing_p_12.cpp)
+add_executable(listing_p_16 listing_p_16.cpp)
+add_executable(listing_p_19 listing_p_19.cpp)
+add_executable(listing_p_20 listing_p_20.cpp)
+add_executable(listing_p_22 listing_p_22.cpp)
+add_executable(listing_p_25 listing_p_25.cpp)
+add_executable(listing_p_26 listing_p_26.cpp)
+add_executable(listing_p_27 listing_p_27.cpp)
