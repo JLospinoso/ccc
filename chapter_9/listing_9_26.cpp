@@ -1,11 +1,13 @@
 #include <cstdio>
 #include <functional>
 
+void static_func() {
+  printf("A static function.\n");
+}
+
 int main() {
-  std::function<void()> func;
-  try {
-    func();
-  } catch (const std::bad_function_call& e) {
-    printf("Exception: %s", e.what());
-  }
+  std::function<void()> func{ [] { printf("A lambda.\n"); } };
+  func();
+  func = static_func;
+  func();
 }

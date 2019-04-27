@@ -5,7 +5,7 @@ int main() {
   char to_count{ 's' };
   size_t tally{};
   auto s_counter = [=](const char* str) mutable {
-    size_t index{}, result{};
+  size_t index{}, result{};
   while (str[index]) {
     if (str[index] == to_count) result++;
     index++;

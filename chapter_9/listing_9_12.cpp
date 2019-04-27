@@ -1,27 +1,27 @@
 #include <cstdio>
+#include <cstdint>
 
-float add(float a, int b) {
-  return a + b;
-}
-
-float subtract(float a, int b) {
-  return a - b;
-}
-
-
+struct CountIf {
+  CountIf(char x) : x{ x } {}
+    size_t operator()(const char* str) const {
+    size_t index{}, result{};
+    while (str[index]) {
+      if (str[index] == x) result++;
+        index++;
+    }
+    return result;
+  }
+private:
+  const char x;
+};
 
 int main() {
-  const float first{ 100 };
-  const int second{ 20 };
-
-  float(*operation)(float, int) {};
-  printf("operation initialized to 0x%p\n", operation);
-
-  operation = &add;
-  printf("&add = 0x%p\n", operation);
-  printf("%g + %d = %g\n", first, second, operation(first, second));
-
-  operation = &subtract;
-  printf("&subtract = 0x%p\n", operation);
-  printf("%g - %d = %g\n", first, second, operation(first, second));
+  CountIf s_counter{ 's' };
+  auto sally = s_counter("Sally sells seashells by the seashore.");
+  printf("Sally: %zd\n", sally);
+  auto sailor = s_counter("Sailor went to sea to see what he could see.");
+  printf("Sailor: %zd\n", sailor);
+  auto buffalo = CountIf{ 'f' }("Buffalo buffalo Buffalo buffalo "
+                                "buffalo buffalo Buffalo buffalo.");
+  printf("Buffalo: %zd\n", buffalo);
 }

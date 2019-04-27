@@ -1,10 +1,25 @@
 #include <cstdio>
 
-template <typename... T>
-constexpr auto sum(T... args) {
-  return (... + args);
+float add(float a, int b) {
+  return a + b;
+}
+
+float subtract(float a, int b) {
+  return a - b;
 }
 
 int main() {
-  printf("The answer is %d.", sum(2, 4, 6, 8, 10, 12));
+  const float first{ 100 };
+  const int second{ 20 };
+
+  float(*operation)(float, int) {};
+  printf("operation initialized to 0x%p\n", operation);
+
+  operation = &add;
+  printf("&add = 0x%p\n", operation);
+  printf("%g + %d = %g\n", first, second, operation(first, second));
+
+  operation = &subtract;
+  printf("&subtract = 0x%p\n", operation);
+  printf("%g - %d = %g\n", first, second, operation(first, second));
 }
