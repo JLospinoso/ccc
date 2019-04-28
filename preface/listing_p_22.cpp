@@ -1,14 +1,13 @@
 #include <cstdio>
 
 struct Hal {
-  Hal() { // Constructor
+  Hal() : version{ 9000 } { // Constructor
     printf("I'm completely operational.\n");
-    version = 9000;
   }
   ~Hal() { // Destructor
     printf("Stop, Dave.\n");
   }
-  int version;
+  const int version;
 };
 
 int main() {
