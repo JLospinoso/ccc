@@ -1,11 +1,11 @@
 #include <memory>
 
-struct Foo{
-  int foo_element{};
+struct Foundation{
+  const char* founder;
 };
 
 int main() {
-  std::unique_ptr<Foo> foo_ptr{ new Foo{} };
-  // ...
-  foo_ptr->foo_element++; // Access Foo member variable just like a pointer
+  std::unique_ptr<Foundation> second_foundation{ new Foundation{} };
+  // Access Foo member variable just like a pointer
+  second_foundation->founder = "Wanda";
 }
