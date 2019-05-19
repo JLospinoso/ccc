@@ -1,12 +1,12 @@
-#include <iostream>
 #include <filesystem>
+#include <iostream>
 
 using namespace std;
 using namespace std::filesystem;
 using namespace std::chrono;
 
 void write_info(const path& p) {
-  if (!exists(p)) {
+  if(!exists(p)) {
     cout << p << " does not exist." << endl;
     return;
   }
@@ -22,8 +22,7 @@ int main() {
     write_info(win_path);
     write_info(reamde_path);
 
-    cout << "Copying " << win_path.filename() 
-         << " to " << reamde_path.filename() << "\n";
+    cout << "Copying " << win_path.filename() << " to " << reamde_path.filename() << "\n";
     copy_file(win_path, reamde_path);
     write_info(reamde_path);
 

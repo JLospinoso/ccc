@@ -1,13 +1,16 @@
-#include <cstdio>
 #include <cstdint>
+#include <cstdio>
 
 struct LambdaFactory {
-  LambdaFactory(char in) : to_count{ in }, tally{} {}
+  LambdaFactory(char in)
+      : to_count{ in }
+      , tally{} {}
   auto make_lambda() {
     return [this](const char* str) {
       size_t index{}, result{};
-      while (str[index]) {
-        if (str[index] == to_count) result++;
+      while(str[index]) {
+        if(str[index] == to_count)
+          result++;
         index++;
       }
       tally += result;

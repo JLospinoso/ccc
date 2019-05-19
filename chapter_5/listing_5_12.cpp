@@ -22,9 +22,11 @@ struct Bank {
     logger = new_logger;
   }
   void make_transfer(long from, long to, double amount) {
-    if (logger) logger->log_transfer(from, to, amount);
+    if(logger)
+      logger->log_transfer(from, to, amount);
   }
-private:
+
+  private:
   Logger* logger{};
 };
 

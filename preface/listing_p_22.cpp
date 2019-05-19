@@ -1,7 +1,8 @@
 #include <cstdio>
 
 struct Hal {
-  Hal() : version{ 9000 } { // Constructor
+  Hal()
+      : version{ 9000 } { // Constructor
     printf("I'm completely operational.\n");
   }
   ~Hal() { // Destructor
@@ -11,6 +12,6 @@ struct Hal {
 };
 
 int main() {
-  auto hal = new Hal{};  // Memory is allocated, then constructor is called
-  delete hal;            // Destructor is called, then memory is deallocated
+  auto hal = new Hal{}; // Memory is allocated, then constructor is called
+  delete hal; // Destructor is called, then memory is deallocated
 }

@@ -1,9 +1,9 @@
-#include <map>
-#include <string>
 #include <algorithm>
-#include <iostream>
-#include <random>
 #include <iomanip>
+#include <iostream>
+#include <map>
+#include <random>
+#include <string>
 
 using namespace std;
 
@@ -14,12 +14,12 @@ mt19937_64 urbg;
 void sample_length(size_t n) {
   cout << "-- Length " << n << " --\n";
   map<string, size_t> counts;
-  for (size_t i{}; i < n_samples; i++) {
+  for(size_t i{}; i < n_samples; i++) {
     string result;
     sample(population.begin(), population.end(), back_inserter(result), n, urbg);
     counts[result]++;
   }
-  for (const auto& [sample, count] : counts) {
+  for(const auto& [sample, count] : counts) {
     const auto percentage = 100 * count / static_cast<double>(n_samples);
     cout << percentage << " '" << sample << "'\n";
   }

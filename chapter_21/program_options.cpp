@@ -7,12 +7,11 @@ int main(int argc, char** argv) {
   bool is_recursive{}, is_help{};
 
   options_description description{ "mgrep [options] pattern path1 path2 ..." };
-  description.add_options()
-          ("help,h", bool_switch(&is_help), "display a help dialog")
-          ("threads,t", value<int>()->default_value(4), "number of threads to use")
-          ("recursive,r", bool_switch(&is_recursive), "search subdirectories recursively")
-          ("pattern", value<std::string>(), "pattern to search for")
-          ("path", value<std::vector<std::string>>(), "path to search");
+  description.add_options()("help,h", bool_switch(&is_help), "display a help dialog")(
+      "threads,t", value<int>()->default_value(4), "number of threads to use")(
+      "recursive,r", bool_switch(&is_recursive), "search subdirectories recursively")(
+      "pattern", value<std::string>(), "pattern to search for")(
+      "path", value<std::vector<std::string>>(), "path to search");
 
   positional_options_description positional;
   positional.add("pattern", 1);
@@ -27,20 +26,20 @@ int main(int argc, char** argv) {
     auto parsed_result = parser.run();
     store(parsed_result, vm);
     notify(vm);
-  } catch (std::exception& e) {
+  } catch(std::exception& e) {
     std::cerr << e.what() << "\n";
     return -1;
   }
 
-  if (is_help) {
+  if(is_help) {
     std::cout << description;
     return 0;
   }
-  if (vm["pattern"].empty()) {
+  if(vm["pattern"].empty()) {
     std::cerr << "You must provide a pattern.\n";
     return -1;
   }
-  if (vm["path"].empty()) {
+  if(vm["path"].empty()) {
     std::cerr << "You must provide at least one path.\n";
     return -1;
   }

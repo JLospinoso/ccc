@@ -1,17 +1,17 @@
-﻿#include <cstdio>
+﻿#include <cstdarg>
 #include <cstdint>
-#include <cstdarg>
+#include <cstdio>
 
 int sum(size_t n, ...) {
   va_list args;
-    va_start(args, n);
-    int result{};
-  while (n--) {
+  va_start(args, n);
+  int result{};
+  while(n--) {
     auto next_element = va_arg(args, int);
     result += next_element;
   }
   va_end(args);
-    return result;
+  return result;
 }
 
 int main() {

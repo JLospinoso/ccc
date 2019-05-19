@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 
-struct MyTestFixture : ::testing::Test { };
+struct MyTestFixture : ::testing::Test {};
 
 TEST_F(MyTestFixture, MyTestA) {
   // Test A here

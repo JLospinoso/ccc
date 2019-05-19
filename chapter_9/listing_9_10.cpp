@@ -12,7 +12,7 @@ int main() {
   const float first{ 100 };
   const int second{ 20 };
 
-  float(*operation)(float, int) {};
+  float (*operation)(float, int){};
   printf("operation initialized to 0x%p\n", operation);
 
   operation = &add;

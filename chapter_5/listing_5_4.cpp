@@ -1,5 +1,5 @@
 struct BaseClass {};
-struct DerivedClass : BaseClass {}; 
+struct DerivedClass : BaseClass {};
 void are_belong_to_us(BaseClass& base) {}
 
 int main() {

@@ -4,7 +4,8 @@ struct Distillate {
   int apply() volatile {
     return ++applications;
   }
-private:
+
+  private:
   int applications{};
 };
 

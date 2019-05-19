@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 using namespace std;
 
@@ -11,9 +11,5 @@ int main() {
   cout << "\nAvogadro's Number: " << scientific << 6.0221415e-23;
   cout << "\nHogwart's Platform: " << fixed << setprecision(2) << 9.750123;
   cout << "\nAlways eliminate " << 3735929054;
-  cout << setw(4) << "\n"
-       << 0x1 << "\n" 
-       << 0x10 << "\n"
-       << 0x100 << "\n"
-       << 0x1000 << endl;
+  cout << setw(4) << "\n" << 0x1 << "\n" << 0x10 << "\n" << 0x100 << "\n" << 0x1000 << endl;
 }

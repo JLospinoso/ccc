@@ -1,10 +1,11 @@
-#include <cstdio>
 #include <cstdint>
+#include <cstdio>
 
 size_t count_if(char x, const char* str) {
   size_t index{}, result{};
-  while (str[index]) {
-    if (str[index] == x) result++;
+  while(str[index]) {
+    if(str[index] == x)
+      result++;
     index++;
   }
   return result;
@@ -15,7 +16,8 @@ int main() {
   printf("Sally: %zd\n", sally);
   auto sailor = count_if('s', "Sailor went to sea to see what he could see.");
   printf("Sailor: %zd\n", sailor);
-  auto buffalo = count_if('f', "Buffalo buffalo Buffalo buffalo "
-                               "buffalo buffalo Buffalo buffalo.");
+  auto buffalo = count_if('f',
+                          "Buffalo buffalo Buffalo buffalo "
+                          "buffalo buffalo Buffalo buffalo.");
   printf("Buffalo: %zd\n", buffalo);
 }

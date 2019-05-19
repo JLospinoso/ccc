@@ -13,13 +13,13 @@ int main() {
   string op;
   cout << "Operation: ";
   cin >> op;
-  if (op == "+") {
+  if(op == "+") {
     cout << x + y;
-  } else if (op == "-") {
+  } else if(op == "-") {
     cout << x - y;
-  } else if (op == "*") {
+  } else if(op == "*") {
     cout << x * y;
-  } else if (op == "/") {
+  } else if(op == "/") {
     cout << x / y;
   } else {
     cout << "Unknown operation " << op;

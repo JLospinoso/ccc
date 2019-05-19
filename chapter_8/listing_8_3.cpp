@@ -1,19 +1,21 @@
-﻿#include <cstdio>
-#include <cstdint>
+﻿#include <cstdint>
+#include <cstdio>
 
 struct RandomNumberGenerator {
-  explicit RandomNumberGenerator(uint32_t seed) 
-    : iterations{}, number { seed } {}
+  explicit RandomNumberGenerator(uint32_t seed)
+      : iterations{}
+      , number{ seed } {}
   uint32_t next();
   size_t get_iterations() const;
-private:
+
+  private:
   size_t iterations;
   uint32_t number;
 };
 
 int main() {
   RandomNumberGenerator rng{ 0x4c4347 };
-  while (rng.next() != 0x474343) {
+  while(rng.next() != 0x474343) {
     // Do nothing...
   }
   printf("%zd", rng.get_iterations());

@@ -1,7 +1,7 @@
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch.hpp>
-#include <string>
 #include <sstream>
+#include <string>
 
 TEST_CASE("ostringstream produces strings with str") {
   std::ostringstream ss;

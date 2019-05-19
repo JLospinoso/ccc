@@ -9,14 +9,14 @@ void goat_rodeo() {
   int tin_cans_available{};
   mutex tin_can_mutex;
   auto eat_cans = async(launch::async, [&] {
-    for(size_t i; i<iterations; i++) {
+    for(size_t i; i < iterations; i++) {
       tin_can_mutex.lock();
       tin_cans_available--;
       tin_can_mutex.unlock();
     }
   });
   auto deposit_cans = async(launch::async, [&] {
-    for(size_t i; i<iterations; i++) {
+    for(size_t i; i < iterations; i++) {
       tin_can_mutex.lock();
       tin_cans_available++;
       tin_can_mutex.unlock();

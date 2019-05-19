@@ -3,7 +3,7 @@
 #include <string>
 
 int main() {
-  std::string command{ "ping -c 4 google.com" };
-  const auto result = std::system(command.c_str());
-  std::cout << "The command \'" << command << "\' returned " << result << "\n";
+  std::string variable_name{ "PATH" };
+  std::string result{ std::getenv(variable_name.c_str()) };
+  std::cout << "The variable " << variable_name << " equals " << result << "\n";
 }

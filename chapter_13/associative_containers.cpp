@@ -1,8 +1,8 @@
 ﻿#define CATCH_CONFIG_MAIN
 #include <catch2/catch.hpp>
 
-#include <set>
 #include <array>
+#include <set>
 
 TEST_CASE("std::set supports") {
   std::set<int> emp;
@@ -54,7 +54,6 @@ TEST_CASE("std::set allows access") {
     REQUIRE(*itr == 5);
   }
 }
-
 
 TEST_CASE("std::set allows insertion") {
   std::set<int> fib{ 1, 1, 2, 3, 5 };
@@ -155,7 +154,7 @@ TEST_CASE("std::map supports") {
     REQUIRE(emp.empty());
   }
   SECTION("braced initialization") {
-    std::map<const char*, int> pub_year {
+    std::map<const char*, int> pub_year{
       { colour_of_magic, 1983 },
       { the_light_fantastic, 1986 },
       { equal_rites, 1987 },
@@ -165,9 +164,8 @@ TEST_CASE("std::map supports") {
   }
 }
 
-
 TEST_CASE("std::map is an associative array with") {
-  std::map<const char*, int> pub_year {
+  std::map<const char*, int> pub_year{
     { colour_of_magic, 1983 },
     { the_light_fantastic, 1986 },
   };
@@ -188,7 +186,6 @@ TEST_CASE("std::map is an associative array with") {
   }
 }
 
-
 TEST_CASE("std::map supports insert") {
   std::map<const char*, int> pub_year;
   pub_year.insert({ colour_of_magic, 1983 });
@@ -206,21 +203,19 @@ TEST_CASE("std::map supports insert") {
 }
 
 TEST_CASE("std::map supports insert_or_assign") {
-  std::map<const char*, int> pub_year{
-    { the_light_fantastic, 9999 }
-  };
+  std::map<const char*, int> pub_year{ { the_light_fantastic, 9999 } };
   auto [itr, inserted] = pub_year.insert_or_assign(the_light_fantastic, 1986);
   REQUIRE(itr->second == 1986);
   REQUIRE_FALSE(inserted);
 }
 
 TEST_CASE("We can remove std::map elements using") {
-    std::map<const char*, int> pub_year {
-      { colour_of_magic, 1983 },
-      { the_light_fantastic, 1986 },
-      { equal_rites, 1987 },
-      { mort, 1987 },
-    };
+  std::map<const char*, int> pub_year{
+    { colour_of_magic, 1983 },
+    { the_light_fantastic, 1986 },
+    { equal_rites, 1987 },
+    { mort, 1987 },
+  };
   SECTION("erase") {
     pub_year.erase(mort);
     REQUIRE(pub_year.find(mort) == pub_year.end());
@@ -232,11 +227,9 @@ TEST_CASE("We can remove std::map elements using") {
 }
 
 TEST_CASE("std::multimap supports non-unique keys") {
-  std::array<char, 64> far_out {
-    "Far out in the uncharted backwaters of the unfashionable end..."
-  };
+  std::array<char, 64> far_out{ "Far out in the uncharted backwaters of the unfashionable end..." };
   std::multimap<char, size_t> indices;
-  for(size_t index{}; index<far_out.size(); index++)
+  for(size_t index{}; index < far_out.size(); index++)
     indices.emplace(far_out[index], index);
 
   REQUIRE(indices.count('a') == 6);
@@ -248,4 +241,3 @@ TEST_CASE("std::multimap supports non-unique keys") {
   itr++;
   REQUIRE(itr == end);
 }
-

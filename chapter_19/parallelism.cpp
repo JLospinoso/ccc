@@ -1,22 +1,23 @@
 #include <algorithm>
-#include <vector>
+#include <chrono>
+#include <execution>
+#include <iostream>
 #include <numeric>
 #include <random>
-#include <chrono>
-#include <iostream>
-#include <execution>
+#include <vector>
 
 using namespace std;
 
 // Listing 11-39
 struct Stopwatch {
   explicit Stopwatch(chrono::nanoseconds& result)
-  : result{ result },
-  start{ chrono::high_resolution_clock::now() } { }
+      : result{ result }
+      , start{ chrono::high_resolution_clock::now() } {}
   ~Stopwatch() {
     result = chrono::high_resolution_clock::now() - start;
   }
-private:
+
+  private:
   chrono::nanoseconds& result;
   const chrono::time_point<chrono::high_resolution_clock> start;
 };

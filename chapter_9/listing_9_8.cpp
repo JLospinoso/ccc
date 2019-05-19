@@ -2,12 +2,12 @@
 
 template <typename T>
 constexpr T sum(T x) {
-    return x;
+  return x;
 }
 
 template <typename T, typename... Args>
 constexpr T sum(T x, Args... args) {
-    return x + sum(args...);
+  return x + sum(args...);
 }
 
 int main() {

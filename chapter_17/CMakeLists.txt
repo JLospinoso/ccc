@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1...3.13)
+cmake_minimum_required(VERSION 3.1...3.14)
 
 project(chapter_17 LANGUAGES CXX)
 
@@ -13,3 +13,11 @@ add_executable(listing_17_8 listing_17_8.cpp)
 add_executable(listing_17_9 listing_17_9.cpp)
 
 target_link_libraries(filesystem PRIVATE stdc++fs ${Boost_SYSTEM_LIBRARY})
+target_link_libraries(listing_17_2 PRIVATE stdc++fs)
+target_link_libraries(listing_17_3 PRIVATE stdc++fs)
+target_link_libraries(listing_17_4 PRIVATE stdc++fs)
+target_link_libraries(listing_17_5 PRIVATE stdc++fs)
+target_link_libraries(listing_17_6 PRIVATE stdc++fs)
+target_link_libraries(listing_17_7 PRIVATE stdc++fs)
+target_link_libraries(listing_17_8 PRIVATE stdc++fs)
+target_link_libraries(listing_17_9 PRIVATE stdc++fs)

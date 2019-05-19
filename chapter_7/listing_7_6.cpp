@@ -1,6 +1,6 @@
 #include <cstddef>
-#include <new>
 #include <cstdio>
+#include <new>
 
 struct Bucket {
   const static size_t data_size{ 4096 };
@@ -9,9 +9,10 @@ struct Bucket {
 
 struct Heap {
   void* allocate(size_t bytes) {
-    if (bytes > Bucket::data_size) throw std::bad_alloc();
-    for (auto i = 0; i < n_heap_buckets; i++) {
-      if (!bucket_used[i]) {
+    if(bytes > Bucket::data_size)
+      throw std::bad_alloc();
+    for(auto i = 0; i < n_heap_buckets; i++) {
+      if(!bucket_used[i]) {
         bucket_used[i] = true;
         return buckets[i].data;
       }
@@ -20,12 +21,12 @@ struct Heap {
   }
 
   void free(void* p) {
-      for (auto i = 0; i < n_heap_buckets; i++) {
-        if (buckets[i].data == p) {
-          bucket_used[i] = false;
-          return;
-        }
+    for(auto i = 0; i < n_heap_buckets; i++) {
+      if(buckets[i].data == p) {
+        bucket_used[i] = false;
+        return;
       }
+    }
   }
   static const size_t n_heap_buckets{ 10 };
   Bucket buckets[n_heap_buckets]{};
@@ -47,15 +48,15 @@ int main() {
   auto breakfast = new unsigned int{ 0xC0FFEE };
   auto dinner = new unsigned int{ 0xDEADBEEF };
   printf("Breakfast: %p 0x%x\n", breakfast, *breakfast);
-    printf("Dinner:    %p 0x%x\n", dinner, *dinner);
-    delete breakfast;
+  printf("Dinner:    %p 0x%x\n", dinner, *dinner);
+  delete breakfast;
   delete dinner;
   try {
-    while (true) {
+    while(true) {
       new char;
       printf("Allocated a char.\n");
     }
-  } catch (const std::bad_alloc&) {
+  } catch(const std::bad_alloc&) {
     printf("std::bad_alloc caught.\n");
   }
 }

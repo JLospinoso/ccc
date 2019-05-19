@@ -11,7 +11,7 @@ int main() {
     while(cin >> word)
       count++;
     cout << "Discovered " << count << " words.\n";
-  } catch (const std::exception& e) {
+  } catch(const std::exception& e) {
     cerr << "Error occurred reading from stdin: " << e.what();
   }
 }

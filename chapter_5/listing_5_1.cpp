@@ -2,7 +2,7 @@
 
 struct ConsoleLogger {
   void log_transfer(long from, long to, double amount) {
-      printf("%ld -> %ld: %f\n", from, to, amount);
+    printf("%ld -> %ld: %f\n", from, to, amount);
   }
 };
 

@@ -1,6 +1,6 @@
 #include <fstream>
-#include <string>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -19,7 +19,7 @@ int main() {
   auto file = open("numbers.txt");
   auto maximum = numeric_limits<int>::min();
   int value;
-  while (file >> value)
+  while(file >> value)
     maximum = maximum < value ? value : maximum;
   cout << "Maximum found was " << maximum << endl;
 }

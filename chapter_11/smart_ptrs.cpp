@@ -1,11 +1,11 @@
 ﻿#define CATCH_CONFIG_MAIN
-#include <catch2/catch.hpp>
 #include <boost/smart_ptr/scoped_ptr.hpp>
+#include <catch2/catch.hpp>
 #include <utility>
 
 struct DeadMenOfDunharrow {
-  DeadMenOfDunharrow(const char* m="") 
-    : message{ m } {
+  DeadMenOfDunharrow(const char* m = "")
+      : message{ m } {
     oaths_to_fulfill++;
   }
   ~DeadMenOfDunharrow() {
@@ -84,20 +84,16 @@ TEST_CASE("ScopedPtr supports comparison with nullptr") {
 TEST_CASE("ScopedPtr supports swap") {
   auto message1 = "The way is shut.";
   auto message2 = "Until the time comes.";
-  ScopedOathbreakers aragorn1 {
-    new DeadMenOfDunharrow{ message1 }
-  };
-  ScopedOathbreakers aragorn2 {
-    new DeadMenOfDunharrow{ message2 }
-  };
+  ScopedOathbreakers aragorn1{ new DeadMenOfDunharrow{ message1 } };
+  ScopedOathbreakers aragorn2{ new DeadMenOfDunharrow{ message2 } };
   REQUIRE(aragorn1->message == message1);
   aragorn1.swap(aragorn2);
   REQUIRE(aragorn2->message == message1);
   REQUIRE(aragorn1->message == message2);
 }
 
-void by_ref(const ScopedOathbreakers&) { }
-void by_val(ScopedOathbreakers) { }
+void by_ref(const ScopedOathbreakers&) {}
+void by_val(ScopedOathbreakers) {}
 TEST_CASE("ScopedPtr can") {
   ScopedOathbreakers aragorn{ new DeadMenOfDunharrow };
   SECTION("be passed by reference") {
@@ -118,9 +114,7 @@ TEST_CASE("ScopedPtr can") {
 #include <boost/smart_ptr/scoped_array.hpp>
 
 TEST_CASE("ScopedArray supports operator[]") {
-  boost::scoped_array<int> squares{ 
-    new int[5] { 1, 4, 9, 16, 25 } 
-  };
+  boost::scoped_array<int> squares{ new int[5]{ 1, 4, 9, 16, 25 } };
   REQUIRE(squares[0] == 1);
   REQUIRE(squares[1] == 4);
   REQUIRE(squares[2] == 9);
@@ -145,25 +139,16 @@ TEST_CASE("UniquePtr can be used in move") {
 }
 
 TEST_CASE("UniquePtr to array supports operator[]") {
-  std::unique_ptr<int[]> squares{
-    new int[5]{ 1, 4, 9, 16, 25 }
-  };
+  std::unique_ptr<int[]> squares{ new int[5]{ 1, 4, 9, 16, 25 } };
   REQUIRE(squares[0] == 1);
   REQUIRE(squares[1] == 4);
   REQUIRE(squares[2] == 9);
 }
 
 auto my_deleter = [](int* x) { /* ... */ };
-std::unique_ptr<int, decltype(my_deleter)> my_up{
-  new int,
-  my_deleter
-};
+std::unique_ptr<int, decltype(my_deleter)> my_up{ new int, my_deleter };
 
-std::shared_ptr<int> sh_ptr{
-  new int{ 10 },
-  [](int* x) { delete x; },
-  std::allocator<int>{}
-};
+std::shared_ptr<int> sh_ptr{ new int{ 10 }, [](int* x) { delete x; }, std::allocator<int>{} };
 auto sh_ptr1 = std::allocate_shared<int>(std::allocator<int>{}, 10);
 
 using SharedOathbreakers = std::shared_ptr<DeadMenOfDunharrow>;
@@ -221,7 +206,8 @@ void intrusive_ptr_add_ref(DeadMenOfDunharrow* d) {
 
 void intrusive_ptr_release(DeadMenOfDunharrow* d) {
   ref_count--;
-  if (ref_count == 0) delete d;
+  if(ref_count == 0)
+    delete d;
 }
 
 TEST_CASE("IntrusivePtr") {
@@ -244,7 +230,7 @@ struct MyAllocator {
 
   MyAllocator() noexcept = default;
   template <typename U>
-  MyAllocator(const MyAllocator<U>&) noexcept { }
+  MyAllocator(const MyAllocator<U>&) noexcept {}
 
   T* allocate(size_t n) {
     auto p = operator new(sizeof(T) * n);
@@ -259,10 +245,14 @@ struct MyAllocator {
 };
 
 template <typename T1, typename T2>
-bool operator==(const MyAllocator<T1>&, const MyAllocator<T2>&) { return true; }
+bool operator==(const MyAllocator<T1>&, const MyAllocator<T2>&) {
+  return true;
+}
 
 template <typename T1, typename T2>
-bool operator!=(const MyAllocator<T1>&, const MyAllocator<T2>&) { return false; }
+bool operator!=(const MyAllocator<T1>&, const MyAllocator<T2>&) {
+  return false;
+}
 
 TEST_CASE("Allocator") {
   auto message = "The way is shut.";
@@ -287,10 +277,11 @@ void say_hello(FileGuard file) {
 
 int main22() {
   auto file = fopen("HAL9000", "w");
-    if (!file) return errno;
-    FileGuard file_guard{ file, fclose };
-    // File open here 
-    say_hello(std::move(file_guard));
-    // File closed here
-    return 0;
+  if(!file)
+    return errno;
+  FileGuard file_guard{ file, fclose };
+  // File open here
+  say_hello(std::move(file_guard));
+  // File closed here
+  return 0;
 }

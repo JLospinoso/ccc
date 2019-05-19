@@ -15,7 +15,7 @@ TEST_CASE("std::back_inserter supports writing forward") {
   *front_instr = 1; // 1 2 4
   ++front_instr;
 
-  auto instr = std::inserter(dq, dq.begin()+2);
+  auto instr = std::inserter(dq, dq.begin() + 2);
   *instr = 3; // 1 2 3 4
   instr++;
 
@@ -44,9 +44,9 @@ TEST_CASE("std::forward_list begin and end provide forward iterators") {
   auto itr1 = easy_as.begin();
   auto itr2{ itr1 };
   int double_sum{};
-  while (itr1 != easy_as.cend())
+  while(itr1 != easy_as.cend())
     double_sum += *(itr1++);
-  while (itr2 != easy_as.cend())
+  while(itr2 != easy_as.cend())
     double_sum += *(itr2++);
   REQUIRE(double_sum == 12);
 }
@@ -71,19 +71,15 @@ TEST_CASE("std::vector begin and end provide random-access iterators") {
   auto itr = easy_as.begin();
   REQUIRE(itr[0] == 1);
   itr++;
-  REQUIRE(*(easy_as.cbegin()+2) == 3);
+  REQUIRE(*(easy_as.cbegin() + 2) == 3);
   REQUIRE(easy_as.cend() - itr == 2);
 }
 
 #include <iterator>
 
 TEST_CASE("advance modifies input iterators") {
-  std::vector<unsigned char> mission{
-    0x9e, 0xc4, 0xc1, 0x29,
-    0x49, 0xa4, 0xf3, 0x14,
-    0x74, 0xf2, 0x99, 0x05,
-    0x8c, 0xe2, 0xb2, 0x2a
-  };
+  std::vector<unsigned char> mission{ 0x9e, 0xc4, 0xc1, 0x29, 0x49, 0xa4, 0xf3, 0x14,
+                                      0x74, 0xf2, 0x99, 0x05, 0x8c, 0xe2, 0xb2, 0x2a };
   auto itr = mission.begin();
   std::advance(itr, 4);
   REQUIRE(*itr == 0x49);
@@ -96,12 +92,8 @@ TEST_CASE("advance modifies input iterators") {
 #include <iterator>
 
 TEST_CASE("next returns iterators at given offsets") {
-  std::vector<unsigned char> mission{
-    0x9e, 0xc4, 0xc1, 0x29,
-    0x49, 0xa4, 0xf3, 0x14,
-    0x74, 0xf2, 0x99, 0x05,
-    0x8c, 0xe2, 0xb2, 0x2a
-  };
+  std::vector<unsigned char> mission{ 0x9e, 0xc4, 0xc1, 0x29, 0x49, 0xa4, 0xf3, 0x14,
+                                      0x74, 0xf2, 0x99, 0x05, 0x8c, 0xe2, 0xb2, 0x2a };
   auto itr1 = mission.begin();
   std::advance(itr1, 4);
   REQUIRE(*itr1 == 0x49);
@@ -118,12 +110,8 @@ TEST_CASE("next returns iterators at given offsets") {
 #include <iterator>
 
 TEST_CASE("distance returns the number of elements between iterators") {
-  std::vector<unsigned char> mission{
-    0x9e, 0xc4, 0xc1, 0x29,
-    0x49, 0xa4, 0xf3, 0x14,
-    0x74, 0xf2, 0x99, 0x05,
-    0x8c, 0xe2, 0xb2, 0x2a
-  };
+  std::vector<unsigned char> mission{ 0x9e, 0xc4, 0xc1, 0x29, 0x49, 0xa4, 0xf3, 0x14,
+                                      0x74, 0xf2, 0x99, 0x05, 0x8c, 0xe2, 0xb2, 0x2a };
   auto eighth = std::next(mission.begin(), 8);
   auto fourth = std::prev(eighth, 4);
   REQUIRE(std::distance(fourth, eighth) == 4);
@@ -141,8 +129,9 @@ TEST_CASE("iter_swap swaps pointed-to elements") {
 
 #include <iterator>
 
-struct Movable{
-  Movable(int id) : id{ id } { }
+struct Movable {
+  Movable(int id)
+      : id{ id } {}
   Movable(Movable&& m) {
     id = m.id;
     m.id = -1;
@@ -175,7 +164,6 @@ TEST_CASE("reverse iterators can initialize containers") {
   REQUIRE(easy_as[1] == 2);
   REQUIRE(easy_as[2] == 3);
 }
-
 
 TEST_CASE("make_reverse_iterator converts a normal iterator") {
   std::list<int> original{ 3, 2, 1 };

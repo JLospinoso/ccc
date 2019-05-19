@@ -1,5 +1,5 @@
-#include <string>
 #include <cstdio>
+#include <string>
 
 int main() {
   std::string word("pulchritudinous");

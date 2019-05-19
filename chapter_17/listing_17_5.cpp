@@ -1,5 +1,5 @@
-#include <iostream>
 #include <filesystem>
+#include <iostream>
 
 using namespace std;
 
@@ -8,8 +8,7 @@ void describe(const filesystem::path& p) {
   try {
     cout << "Is directory: " << is_directory(p) << endl;
     cout << "Is regular file: " << is_regular_file(p) << endl;
-  }
-  catch (const exception& e) {
+  } catch(const exception& e) {
     cerr << "Exception: " << e.what() << endl;
   }
 }

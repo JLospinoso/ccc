@@ -1,9 +1,9 @@
-#include <map>
-#include <string>
 #include <algorithm>
-#include <iostream>
-#include <random>
 #include <iomanip>
+#include <iostream>
+#include <map>
+#include <random>
+#include <string>
 
 using namespace std;
 
@@ -13,12 +13,12 @@ int main() {
   mt19937_64 urbg;
   map<string, size_t> samples;
   cout << fixed << setprecision(1);
-  for (size_t i{}; i < n_samples; i++) {
+  for(size_t i{}; i < n_samples; i++) {
     string result{ population };
     shuffle(result.begin(), result.end(), urbg);
     samples[result]++;
   }
-  for (auto[sample, n] : samples) {
+  for(auto [sample, n] : samples) {
     const auto percentage = 100 * n / static_cast<double>(n_samples);
     cout << percentage << " '" << sample << "'\n";
   }

@@ -4,9 +4,9 @@
 
 struct SimpleString {
   SimpleString(size_t max_size)
-    : max_size{ max_size },
-    length{} {
-    if (max_size == 0) {
+      : max_size{ max_size }
+      , length{} {
+    if(max_size == 0) {
       throw std::runtime_error{ "Max size must be at least 1." };
     }
     buffer = new char[max_size];
@@ -16,18 +16,20 @@ struct SimpleString {
     delete[] buffer;
   }
   void print(const char* tag) const {
-      printf("%s: %s", tag, buffer);
+    printf("%s: %s", tag, buffer);
   }
   bool append_line(const char* x) {
     const auto x_len = strlen(x);
-    if (x_len + length + 2 > max_size) return false;
+    if(x_len + length + 2 > max_size)
+      return false;
     strncpy(buffer + length, x, max_size - length);
     length += x_len;
     buffer[length++] = '\n';
     buffer[length] = 0;
     return true;
   }
-private:
+
+  private:
   size_t max_size;
   char* buffer;
   size_t length;
@@ -41,7 +43,7 @@ int main() {
   string.append_line("Grab your gun and bring the cat in.");
   string.append_line("Aye-aye sir, coming home.");
   string.print("B");
-  if (!string.append_line("Galactica!")) {
+  if(!string.append_line("Galactica!")) {
     printf("String was not big enough to append another message.");
   }
 }

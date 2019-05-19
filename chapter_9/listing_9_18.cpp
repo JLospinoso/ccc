@@ -1,12 +1,13 @@
-#include <cstdio>
 #include <cstdint>
+#include <cstdio>
 
 int main() {
   char to_count{ 's' };
-    auto s_counter = [to_count](const char* str) {
+  auto s_counter = [to_count](const char* str) {
     size_t index{}, result{};
-    while (str[index]) {
-      if (str[index] == to_count) result++;
+    while(str[index]) {
+      if(str[index] == to_count)
+        result++;
       index++;
     }
     return result;

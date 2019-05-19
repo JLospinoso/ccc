@@ -2,7 +2,7 @@
 
 struct Logger {
   virtual ~Logger() = default;
-    virtual void log_transfer(long from, long to, double amount) = 0;
+  virtual void log_transfer(long from, long to, double amount) = 0;
 };
 
 struct ConsoleLogger : Logger {
@@ -18,13 +18,15 @@ struct FileLogger : Logger {
 };
 
 struct Bank {
-  Bank(Logger& logger) : logger{ logger } {}
+  Bank(Logger& logger)
+      : logger{ logger } {}
   void make_transfer(long from, long to, double amount) {
     //
-      logger.log_transfer(from, to, amount);
+    logger.log_transfer(from, to, amount);
   }
-private:
-  Logger & logger;
+
+  private:
+  Logger& logger;
 };
 
 int main() {

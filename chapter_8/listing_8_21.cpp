@@ -1,5 +1,5 @@
-#include <cstdio>
 #include <cstdint>
+#include <cstdio>
 
 bool double_return_overflow(uint8_t& x) {
   const auto original = x;
@@ -12,5 +12,5 @@ int main() {
   printf("uint8_t:\n===\n");
   do {
     printf("%u ", x);
-  } while (!double_return_overflow(x));
+  } while(!double_return_overflow(x));
 }

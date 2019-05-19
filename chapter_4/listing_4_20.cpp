@@ -4,9 +4,9 @@
 
 struct SimpleString {
   SimpleString(size_t max_size)
-    : max_size{ max_size },
-    length{} {
-    if (max_size == 0) {
+      : max_size{ max_size }
+      , length{} {
+    if(max_size == 0) {
       throw std::runtime_error{ "Max size must be at least 1." };
     }
     buffer = new char[max_size];
@@ -20,14 +20,16 @@ struct SimpleString {
   }
   bool append_line(const char* x) {
     const auto x_len = strlen(x);
-    if (x_len + length + 2 > max_size) return false;
+    if(x_len + length + 2 > max_size)
+      return false;
     std::strncpy(buffer + length, x, max_size - length);
     length += x_len;
     buffer[length++] = '\n';
     buffer[length] = 0;
     return true;
   }
-private:
+
+  private:
   size_t max_size;
   char* buffer;
   size_t length;
@@ -35,8 +37,8 @@ private:
 
 struct SimpleStringOwner {
   SimpleStringOwner(const char* x)
-    : string{ 10 } {
-    if (!string.append_line(x)) {
+      : string{ 10 } {
+    if(!string.append_line(x)) {
       throw std::runtime_error{ "Not enough memory!" };
     }
     string.print("Constructed");
@@ -44,7 +46,8 @@ struct SimpleStringOwner {
   ~SimpleStringOwner() {
     string.print("About to destroy");
   }
-private:
+
+  private:
   SimpleString string;
 };
 
@@ -62,7 +65,7 @@ int main() {
     SimpleStringOwner a{ "a" };
     fn_b();
     SimpleStringOwner d{ "d" };
-  } catch (std::exception& e) {
+  } catch(std::exception& e) {
     printf("Exception: %s\n", e.what());
   }
 }

@@ -4,10 +4,10 @@ struct BaseClass {};
 
 struct DerivedClass : BaseClass {
   DerivedClass() {
-      printf("DerivedClass() invoked.\n");
+    printf("DerivedClass() invoked.\n");
   }
   ~DerivedClass() {
-      printf("~DerivedClass() invoked.\n");
+    printf("~DerivedClass() invoked.\n");
   }
 };
 

@@ -1,12 +1,12 @@
-#include <iostream>
 #include <deque>
+#include <iostream>
 
 using namespace std;
 
 template <typename T>
-istream& operator >>(istream& s, deque<T>& t) {
+istream& operator>>(istream& s, deque<T>& t) {
   T element;
-  while (s >> element)
+  while(s >> element)
     t.emplace_back(move(element));
   return s;
 }

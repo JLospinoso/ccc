@@ -14,32 +14,33 @@ struct ConsoleLogger {
   }
 };
 
-enum class LoggerType {
-  Console,
-  File
-};
+enum class LoggerType { Console, File };
 
 struct Bank {
-  Bank() : type{ LoggerType::Console } {}
-    void set_logger(LoggerType new_type) {
-      type = new_type;
+  Bank()
+      : type{ LoggerType::Console } {}
+  void set_logger(LoggerType new_type) {
+    type = new_type;
   }
 
   void make_transfer(long from, long to, double amount) {
-    // 
-    switch (type) {
-      case LoggerType::Console: {
-        consoleLogger.log_transfer(from, to, amount);
-        break;
-      } case LoggerType::File: {
-        fileLogger.log_transfer(from, to, amount);
-        break;
-      } default: {
-        throw std::logic_error("Unknown Logger type encountered.");
-      }
+    //
+    switch(type) {
+    case LoggerType::Console: {
+      consoleLogger.log_transfer(from, to, amount);
+      break;
+    }
+    case LoggerType::File: {
+      fileLogger.log_transfer(from, to, amount);
+      break;
+    }
+    default: {
+      throw std::logic_error("Unknown Logger type encountered.");
+    }
     }
   }
-private:
+
+  private:
   LoggerType type;
   ConsoleLogger consoleLogger;
   FileLogger fileLogger;

@@ -39,17 +39,17 @@ TEST_CASE("constructing a string with") {
     REQUIRE(str.length() == 11);
   }
   SECTION("operator\"\"s incorporates embedded nulls") {
-  using namespace std::string_literals;
-  auto str_lit = "idioglossia\0ellohay!"s;
-  REQUIRE(str_lit.size() == 20);
+    using namespace std::string_literals;
+    auto str_lit = "idioglossia\0ellohay!"s;
+    REQUIRE(str_lit.size() == 20);
   }
 }
 
 TEST_CASE("string's c_str method makes null-terminated strings") {
   std::string word{ "horripilation" };
   auto as_cstr = word.c_str();
-  REQUIRE(as_cstr[0] ==  'h');
-  REQUIRE(as_cstr[1] ==  'o');
+  REQUIRE(as_cstr[0] == 'h');
+  REQUIRE(as_cstr[1] == 'o');
   REQUIRE(as_cstr[11] == 'o');
   REQUIRE(as_cstr[12] == 'n');
   REQUIRE(as_cstr[13] == '\0');
@@ -60,7 +60,8 @@ TEST_CASE("string's c_str method makes null-terminated strings") {
 size_t count_v(std::string_view my_view) {
   size_t result{};
   for(auto letter : my_view)
-    if (letter == 'v' || letter == 'V') result++;
+    if(letter == 'v' || letter == 'V')
+      result++;
   return result;
 }
 
@@ -112,7 +113,7 @@ TEST_CASE("std::string supports appending with") {
   }
   SECTION("append (half-open range)") {
     std::string other("onomatopoeia");
-    word.append(other.begin(), other.begin()+2);
+    word.append(other.begin(), other.begin() + 2);
     REQUIRE(word == "button");
   }
 }
@@ -129,7 +130,7 @@ TEST_CASE("std::string supports removal with") {
     REQUIRE(word.empty());
   }
   SECTION("erase using half-open range") {
-    word.erase(word.begin(), word.begin()+3);
+    word.erase(word.begin(), word.begin() + 3);
     REQUIRE(word == "rein");
   }
   SECTION("erase using an index and length") {
@@ -153,13 +154,12 @@ TEST_CASE("std::string resize") {
 TEST_CASE("std::string replace works with") {
   std::string word("substitution");
   SECTION("a range and a char*") {
-    word.replace(word.begin()+9, word.end(), "e");
+    word.replace(word.begin() + 9, word.end(), "e");
     REQUIRE(word == "substitute");
   }
   SECTION("two ranges") {
     std::string other("innuendo");
-    word.replace(word.begin(), word.begin()+3,
-      other.begin(), other.begin()+2);
+    word.replace(word.begin(), word.begin() + 3, other.begin(), other.begin() + 2);
     REQUIRE(word == "institution");
   }
   SECTION("an index/length and a string") {
@@ -305,8 +305,8 @@ TEST_CASE("std::string_view is modifiable with") {
   }
 }
 
-#include <string>
 #include <boost/algorithm/string/predicate.hpp>
+#include <string>
 
 TEST_CASE("boost::algorithm::") {
   using namespace boost::algorithm;
@@ -323,7 +323,7 @@ TEST_CASE("boost::algorithm::") {
 TEST_CASE("boost::algorithm::all evaluates a predicate for all elements") {
   using namespace boost::algorithm;
   std::string word("juju");
-  REQUIRE(all(word, [](auto c) { return c == 'j' || c =='u'; }));
+  REQUIRE(all(word, [](auto c) { return c == 'j' || c == 'u'; }));
 }
 
 #include <boost/algorithm/string/finder.hpp>
@@ -333,7 +333,7 @@ TEST_CASE("boost::algorithm::is_alnum") {
   std::string word("Carl Brutananadilewski");
   const auto result = finder(word.begin(), word.end());
   REQUIRE(result.begin() == word.begin() + 12); // Brutana(n)adilewski
-  REQUIRE(result.end() == word.begin() + 14);   // Brutanana(d)ilewski
+  REQUIRE(result.end() == word.begin() + 14); // Brutanana(d)ilewski
 }
 
 #include <boost/algorithm/string/case_conv.hpp>
@@ -368,9 +368,9 @@ TEST_CASE("boost::algorithm::replace_first") {
   }
 }
 
-#include <vector>
-#include <boost/algorithm/string/split.hpp>
 #include <boost/algorithm/string/classification.hpp>
+#include <boost/algorithm/string/split.hpp>
+#include <vector>
 
 TEST_CASE("boost::algorithm::split") {
   using namespace boost::algorithm;
@@ -384,16 +384,12 @@ TEST_CASE("boost::algorithm::split") {
   }
 }
 
-#include <vector>
 #include <boost/algorithm/string/join.hpp>
+#include <vector>
 
 TEST_CASE("boost::algorithm::join staples tokens together") {
   using namespace boost::algorithm;
-  std::vector<std::string> tokens{
-    "We invited the strippers",
-    "JFK",
-    "and Stalin."
-  };
+  std::vector<std::string> tokens{ "We invited the strippers", "JFK", "and Stalin." };
   auto result = join(tokens, ", ");
   REQUIRE(result == "We invited the strippers, JFK, and Stalin.");
 }
@@ -404,7 +400,7 @@ TEST_CASE("boost::algorithm::find_head computes the head") {
   std::string word("blandishment");
   const auto result = boost::algorithm::find_head(word, 5);
   REQUIRE(result.begin() == word.begin()); // (b)landishment
-  REQUIRE(result.end() == word.begin()+5); // bland(i)shment
+  REQUIRE(result.end() == word.begin() + 5); // bland(i)shment
 }
 
 #include <regex>
@@ -453,8 +449,8 @@ TEST_CASE("std::regex_replace") {
   REQUIRE(result == "q_____ng _nd c_____ng _n __t_p__");
 }
 
-#include<boost/tokenizer.hpp>
-#include<string>
+#include <boost/tokenizer.hpp>
+#include <string>
 
 TEST_CASE("boost::tokenizer splits token-delimited strings") {
   std::string palindrome("A man, a plan, a canal, Panama!");

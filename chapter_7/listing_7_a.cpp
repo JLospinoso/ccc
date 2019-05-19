@@ -1,9 +1,11 @@
 struct ReadOnlyInt {
-  ReadOnlyInt(int val) : val{ val } {}
+  ReadOnlyInt(int val)
+      : val{ val } {}
   operator int() const {
-      return val;
+    return val;
   }
-private:
+
+  private:
   const int val;
 };
 

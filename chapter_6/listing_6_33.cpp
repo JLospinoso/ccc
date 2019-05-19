@@ -2,20 +2,22 @@
 #include <stdexcept>
 
 int& get_from_int10(int (&arr)[10], size_t index) {
-  if (index >= 10)
+  if(index >= 10)
     throw std::logic_error{ "Out of bounds" };
   return arr[index];
 }
 
 template <typename T>
-T& get_from_array10(T(&arr)[10], size_t index) {
-  if (index >= 10) throw std::logic_error{ "Out of bounds" };
+T& get_from_array10(T (&arr)[10], size_t index) {
+  if(index >= 10)
+    throw std::logic_error{ "Out of bounds" };
   return arr[index];
 }
 
 template <typename T, size_t Length>
-T& get_throw(T(&arr)[10], size_t index) {
-  if (index >= 10) throw std::logic_error{ "Out of bounds" };
+T& get_throw(T (&arr)[10], size_t index) {
+  if(index >= 10)
+    throw std::logic_error{ "Out of bounds" };
   return arr[index];
 }
 

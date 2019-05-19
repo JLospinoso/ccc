@@ -20,7 +20,7 @@ TEST_CASE("std::uniform_int_distribution produces uniform ints") {
   std::uniform_int_distribution<int> int_d{ 0, 10 };
   const size_t n{ 1'000'000 };
   int sum{};
-  for (size_t i{}; i < n; i++)
+  for(size_t i{}; i < n; i++)
     sum += int_d(mt_engine);
   const auto sample_mean = sum / double{ n };
   REQUIRE(sample_mean == Approx(5).epsilon(0.1));

@@ -8,16 +8,12 @@ struct TextFile {
 
 TextFile read_text_file(const char* path) {
   const static char contents[]{ "Sometimes the goat is you." };
-  return TextFile{
-    true,
-    contents,
-    sizeof(contents)
-  };
+  return TextFile{ true, contents, sizeof(contents) };
 }
 
 int main() {
-  const auto[success, contents, length] = read_text_file("REAMDE.txt");
-  if (success) {
+  const auto [success, contents, length] = read_text_file("REAMDE.txt");
+  if(success) {
     printf("Read %zd bytes: %s\n", length, contents);
   } else {
     printf("Failed to open REAMDE.txt.");

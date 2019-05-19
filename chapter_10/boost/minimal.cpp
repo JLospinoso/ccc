@@ -1,7 +1,7 @@
 #define BOOST_TEST_MODULE TestModuleName
 #include <boost/test/included/unit_test.hpp>
 
-struct MyTestFixture { };
+struct MyTestFixture {};
 
 BOOST_FIXTURE_TEST_CASE(MyTestA, MyTestFixture) {
   // Test A here

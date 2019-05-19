@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1...3.13)
+cmake_minimum_required(VERSION 3.1...3.14)
 
 project(ccc LANGUAGES CXX)
 
@@ -9,21 +9,19 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 if(MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17")
 else()
-    find_package(Threads)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z")
 endif(MSVC)
+
+#################$
+# Origin Library #
+##################
+include_directories("third_party/asutton/origin")
 
 #################
 # Boost Library #
 #################
 
-set(Boost_USE_STATIC_LIBS ON)
-set(Boost_USE_MULTI_THREADED ON)
-# set(Boost_USE_STATIC_RUNTIME ON)
-add_definitions(-DBOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE)
-
-find_package(Boost 1.60 REQUIRED COMPONENTS date_time system filesystem unit_test_framework program_options thread)
-
+find_package(Boost COMPONENTS date_time system filesystem unit_test_framework program_options REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 
 macro(boosttest_add_test TESTNAME)
@@ -96,17 +94,15 @@ add_subdirectory(chapter_6)
 add_subdirectory(chapter_7)
 add_subdirectory(chapter_8)
 add_subdirectory(chapter_9)
-#add_subdirectory(chapter_10)
-#add_subdirectory(chapter_11)
-#add_subdirectory(chapter_12)
-#add_subdirectory(chapter_13)
-#add_subdirectory(chapter_14)
-#add_subdirectory(chapter_15)
-#add_subdirectory(chapter_16)
-#if(MSVC) # <filesystem> not available on some *nix systems.
-#    add_subdirectory(chapter_17)
-#endif(MSVC)
-#add_subdirectory(chapter_18)
-#add_subdirectory(chapter_19)
-#add_subdirectory(chapter_20)
-#add_subdirectory(chapter_21)
+add_subdirectory(chapter_10)
+add_subdirectory(chapter_11)
+add_subdirectory(chapter_12)
+add_subdirectory(chapter_13)
+add_subdirectory(chapter_14)
+add_subdirectory(chapter_15)
+add_subdirectory(chapter_16)
+add_subdirectory(chapter_17)
+add_subdirectory(chapter_18)
+add_subdirectory(chapter_19)
+add_subdirectory(chapter_20)
+add_subdirectory(chapter_21)

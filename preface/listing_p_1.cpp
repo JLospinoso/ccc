@@ -1,9 +1,10 @@
 #include <cstdio>
 
 constexpr int isqrt(int n) {
-  int i=1;
-  while (i*i<n) ++i;
-  return i-(i*i!=n);
+  int i = 1;
+  while(i * i < n)
+    ++i;
+  return i - (i * i != n);
 }
 
 int main() {

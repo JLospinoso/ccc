@@ -1,7 +1,7 @@
+#include <condition_variable>
 #include <future>
 #include <iostream>
 #include <mutex>
-#include <condition_variable>
 
 using namespace std;
 
@@ -14,13 +14,13 @@ void goat_rodeo() {
   auto eat_cans = async(launch::async, [&] {
     unique_lock<mutex> lock{ m };
     cv.wait(lock, [&] { return tin_cans_available > 0; });
-    for(size_t i{}; i<iterations; i++)
+    for(size_t i{}; i < iterations; i++)
       tin_cans_available--;
   });
 
   auto deposit_cans = async(launch::async, [&] {
     scoped_lock<mutex> lock{ m };
-    for(size_t i{}; i<iterations; i++)
+    for(size_t i{}; i < iterations; i++)
       tin_cans_available++;
     cv.notify_all();
   });

@@ -1,10 +1,6 @@
 #include <cstdio>
 
-enum class Color {
-  Mauve,
-  Pink,
-  Russet
-};
+enum class Color { Mauve, Pink, Russet };
 
 struct Result {
   const char* name;
@@ -17,19 +13,24 @@ Result observe_shrub(const char* name) {
 
 int main() {
   const char* description;
-  switch (const auto result = observe_shrub("Zaphod"); result.color) {
+  switch(const auto result = observe_shrub("Zaphod"); result.color) {
   case Color::Mauve: {
     description = "mauvey shade of pinky russet";
     break;
-  } case Color::Pink: {
+  }
+  case Color::Pink: {
     description = "pinky shade of mauvey russet";
     break;
-  } case Color::Russet: {
+  }
+  case Color::Russet: {
     description = "russety shade of pinky mauve";
     break;
-  } default: {
+  }
+  default: {
     description = "enigmatic shade of whitish black";
-  }}
+  }
+  }
   printf("The other Shaltanac's joopleberry shrub is"
-         " always a more %s.", description);
+         " always a more %s.",
+         description);
 }

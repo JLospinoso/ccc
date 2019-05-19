@@ -15,8 +15,8 @@ TEST_CASE("Can use from_string to parse date") {
 }
 
 TEST_CASE("Invalid dates throw exceptions") {
-  using boost::gregorian::date;
   using boost::gregorian::bad_day_of_month;
+  using boost::gregorian::date;
 
   REQUIRE_THROWS_AS(date(1986, 9, 32), bad_day_of_month);
 }
@@ -92,17 +92,18 @@ TEST_CASE("chrono used to sleep") {
   REQUIRE(end - start >= 100ms);
 }
 
-#include <cstdio>
 #include <chrono>
+#include <cstdio>
 
 struct Stopwatch {
   Stopwatch(std::chrono::nanoseconds& result)
-    : result{ result },
-    start{ std::chrono::system_clock::now() } { }
+      : result{ result }
+      , start{ std::chrono::system_clock::now() } {}
   ~Stopwatch() {
     result = std::chrono::system_clock::now() - start;
   }
-private:
+
+  private:
   std::chrono::nanoseconds& result;
   const std::chrono::time_point<std::chrono::system_clock> start;
 };

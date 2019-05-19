@@ -1,12 +1,12 @@
 #include <cstdio>
-#include <system_error>
 #include <cstring>
+#include <system_error>
 
 struct File {
   File(const char* path, bool write) {
     auto file_mode = write ? "w" : "r";
     file_pointer = fopen(path, file_mode);
-    if (!file_pointer)
+    if(!file_pointer)
       throw std::system_error(errno, std::system_category());
   }
   ~File() {

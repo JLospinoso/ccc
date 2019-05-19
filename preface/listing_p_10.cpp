@@ -13,6 +13,6 @@ HolmesIV* make_mike(int sense_of_humor) {
 }
 
 int main() {
-  auto mike = make_mike (1000);
+  auto mike = make_mike(1000);
   free(mike);
 }

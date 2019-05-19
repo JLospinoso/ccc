@@ -1,6 +1,6 @@
 ﻿#define CATCH_CONFIG_MAIN
-#include <catch2/catch.hpp>
 #include <boost/logic/tribool.hpp>
+#include <catch2/catch.hpp>
 
 using boost::logic::indeterminate;
 boost::logic::tribool t = true, f = false, i = indeterminate;
@@ -25,22 +25,24 @@ TEST_CASE("Boost Tribool supports Boolean operations") {
 #include <optional>
 
 struct TheMatrix {
-  TheMatrix(int x) : iteration { x } { }
+  TheMatrix(int x)
+      : iteration{ x } {}
   const int iteration;
 };
 
 enum Pill { Red, Blue };
 
 std::optional<TheMatrix> take(Pill pill) {
-  if(pill == Pill::Blue) return TheMatrix{ 6 };
+  if(pill == Pill::Blue)
+    return TheMatrix{ 6 };
   return {};
 }
 
 TEST_CASE("std::optional") {
   SECTION("contains types") {
-    if (auto matrix_opt = take(Pill::Blue)) {
+    if(auto matrix_opt = take(Pill::Blue)) {
       REQUIRE(matrix_opt->iteration == 6);
-      
+
       auto& matrix = matrix_opt.value();
       REQUIRE(matrix.iteration == 6);
 
@@ -52,19 +54,24 @@ TEST_CASE("std::optional") {
 
   SECTION("can be empty") {
     auto matrix_opt = take(Pill::Red);
-    if (matrix_opt) FAIL();
+    if(matrix_opt)
+      FAIL();
     REQUIRE_FALSE(matrix_opt.has_value());
   }
 }
 
 #include <utility>
 
-struct Socialite { const char* birthname; };
-struct Valet { const char* surname; };
+struct Socialite {
+  const char* birthname;
+};
+struct Valet {
+  const char* surname;
+};
 
 TEST_CASE("std::pair") {
-  Socialite bertie { "Wilberforce" };
-  Valet reginald { "Jeeves" };
+  Socialite bertie{ "Wilberforce" };
+  Valet reginald{ "Jeeves" };
   std::pair<Socialite, Valet> inimitable_duo{ bertie, reginald };
   SECTION("permits access to members") {
     REQUIRE(inimitable_duo.first.birthname == bertie.birthname);
@@ -79,7 +86,9 @@ TEST_CASE("std::pair") {
 
 #include <tuple>
 
-struct Acquaintance { const char* nickname; };
+struct Acquaintance {
+  const char* nickname;
+};
 using Trio = std::tuple<Socialite, Valet, Acquaintance>;
 TEST_CASE("std::tuple permits access to members") {
   Socialite bertie{ "Wilberforce" };
@@ -95,7 +104,8 @@ TEST_CASE("std::tuple permits access to members") {
 
 #include <any>
 struct EscapeCapsule {
-  EscapeCapsule(int x) : id{ x } { }
+  EscapeCapsule(int x)
+      : id{ x } {}
   int id;
 };
 
@@ -110,7 +120,9 @@ TEST_CASE("std::any") {
 #include <variant>
 
 struct BugblatterBeast {
-  BugblatterBeast() : is_ravenous{ true }, id{ 42 } { }
+  BugblatterBeast()
+      : is_ravenous{ true }
+      , id{ 42 } {}
   bool is_ravenous;
   int id;
 };
@@ -125,7 +137,8 @@ TEST_CASE("std::variant") {
   REQUIRE(std::get<EscapeCapsule>(hagunemnon).id == 60);
 
   REQUIRE_THROWS_AS(std::get<0>(hagunemnon), std::bad_variant_access);
-  if (auto bugblat_ptr = std::get_if<0>(&hagunemnon)) FAIL();
+  if(auto bugblat_ptr = std::get_if<0>(&hagunemnon))
+    FAIL();
 
   auto id = std::visit([](auto& x) { return x.id; }, hagunemnon);
   REQUIRE(id == 60);

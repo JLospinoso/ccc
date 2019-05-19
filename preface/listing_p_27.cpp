@@ -1,13 +1,13 @@
 #include <memory>
 
-struct Foundation{
+struct Foundation {
   const char* founder;
 };
 
 struct Mutant {
   // Constructor sets foundation appropriately:
   Mutant(std::unique_ptr<Foundation> foundation)
-    : foundation(move(foundation)) {}
+      : foundation(move(foundation)) {}
   std::unique_ptr<Foundation> foundation;
 };
 

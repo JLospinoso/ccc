@@ -1,6 +1,6 @@
 #include <cstdio>
-#include <stdexcept>
 #include <functional>
+#include <stdexcept>
 
 using namespace std;
 
@@ -46,21 +46,20 @@ struct MockServiceBus : IServiceBus {
 
 struct AutoBrake {
   AutoBrake(IServiceBus& bus)
-    : collision_threshold_s{ 5 },
-    speed_mps{} {
-    bus.subscribe([this](const SpeedUpdate& update) {
-      speed_mps = update.velocity_mps;
-    });
+      : collision_threshold_s{ 5 }
+      , speed_mps{} {
+    bus.subscribe([this](const SpeedUpdate& update) { speed_mps = update.velocity_mps; });
     bus.subscribe([this, &bus](const CarDetected& cd) {
       auto relative_velocity_mps = speed_mps - cd.velocity_mps;
       auto time_to_collision_s = cd.distance_m / relative_velocity_mps;
-      if (time_to_collision_s > 0 && time_to_collision_s <= collision_threshold_s) {
+      if(time_to_collision_s > 0 && time_to_collision_s <= collision_threshold_s) {
         bus.publish(BreakCommand{ time_to_collision_s });
       }
     });
   }
   void set_collision_threshold_s(double x) {
-    if (x < 1) throw runtime_error{ "Collision less than 1." };
+    if(x < 1)
+      throw runtime_error{ "Collision less than 1." };
     collision_threshold_s = x;
   }
   double get_collision_threshold_s() const {
@@ -69,21 +68,23 @@ struct AutoBrake {
   double get_speed_mps() const {
     return speed_mps;
   }
-private:
+
+  private:
   double collision_threshold_s;
   double speed_mps;
 };
 
 void assert_that(bool statement, const char* message) {
-  if (!statement) throw runtime_error(message);
+  if(!statement)
+    throw runtime_error(message);
 }
 
-int run_test(void(*unit_test)(), const char* name) {
+int run_test(void (*unit_test)(), const char* name) {
   try {
     unit_test();
     printf("[+] Test %s successful.\n", name);
     return 0;
-  } catch (const exception& e) {
+  } catch(const exception& e) {
     printf("[-] Test failure in %s. %s.\n", name, e.what());
   }
   return -1;
@@ -106,7 +107,7 @@ void sensitivity_greater_than_1() {
   AutoBrake auto_break{ bus };
   try {
     auto_break.set_collision_threshold_s(0.5L);
-  } catch (const exception&) {
+  } catch(const exception&) {
     return;
   }
   assert_that(false, "no exception thrown");
@@ -140,8 +141,9 @@ void alert_when_imminent() {
   bus.speed_update_callback(SpeedUpdate{ 100L });
   bus.car_detected_callback(CarDetected{ 100L, 0L });
   assert_that(bus.commands_published == 1, "1 break command was not published");
-  assert_that(bus.last_command.time_to_collision_s == 1L, "time to collision"
-                                               "not computed correctly.");
+  assert_that(bus.last_command.time_to_collision_s == 1L,
+              "time to collision"
+              "not computed correctly.");
 }
 
 int main() {

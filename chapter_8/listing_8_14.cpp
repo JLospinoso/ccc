@@ -1,11 +1,11 @@
 #include <cstdio>
 
-template<typename T>
+template <typename T>
 constexpr const char* sign(const T& x) {
   const char* result{};
-  if (x == 0) {
+  if(x == 0) {
     result = "zero";
-  } else if (x > 0) {
+  } else if(x > 0) {
     result = "positive";
   } else {
     result = "negative";

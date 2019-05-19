@@ -9,13 +9,13 @@ void goat_rodeo() {
   int tin_cans_available{};
   mutex tin_can_mutex;
   auto eat_cans = async(launch::async, [&] {
-    for(size_t i{}; i<iterations; i++) {
+    for(size_t i{}; i < iterations; i++) {
       lock_guard<mutex> guard{ tin_can_mutex };
       tin_cans_available--;
     }
   });
   auto deposit_cans = async(launch::async, [&] {
-    for(size_t i{}; i<iterations; i++) {
+    for(size_t i{}; i < iterations; i++) {
       lock_guard<mutex> guard{ tin_can_mutex };
       tin_cans_available++;
     }

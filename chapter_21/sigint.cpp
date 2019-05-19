@@ -1,8 +1,8 @@
+#include <atomic>
+#include <chrono>
 #include <csignal>
 #include <iostream>
-#include <chrono>
 #include <thread>
-#include <atomic>
 
 std::atomic_bool interrupted{};
 

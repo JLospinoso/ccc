@@ -1,6 +1,6 @@
 #include <memory>
 
-struct Foundation{
+struct Foundation {
   const char* founder;
 };
 

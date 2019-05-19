@@ -1,17 +1,20 @@
-#include <cstdio>
 #include <cstdint>
+#include <cstdio>
 
 struct CountIf {
-  CountIf(char x) : x{ x } {}
-    size_t operator()(const char* str) const {
+  CountIf(char x)
+      : x{ x } {}
+  size_t operator()(const char* str) const {
     size_t index{}, result{};
-    while (str[index]) {
-      if (str[index] == x) result++;
-        index++;
+    while(str[index]) {
+      if(str[index] == x)
+        result++;
+      index++;
     }
     return result;
   }
-private:
+
+  private:
   const char x;
 };
 

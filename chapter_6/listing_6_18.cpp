@@ -1,8 +1,10 @@
-﻿#include <type_traits>
+﻿#include <cstdint>
 #include <cstdio>
-#include <cstdint>
+#include <type_traits>
 
-const char* as_str(bool x) { return x ? "True" : "False"; }
+const char* as_str(bool x) {
+  return x ? "True" : "False";
+}
 
 int main() {
   printf("%s\n", as_str(std::is_integral<int>::value));

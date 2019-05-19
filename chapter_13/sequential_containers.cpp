@@ -1,6 +1,6 @@
 ﻿#define CATCH_CONFIG_MAIN
-#include <catch2/catch.hpp>
 #include <array>
+#include <catch2/catch.hpp>
 
 std::array<int, 10> static_array;
 
@@ -13,7 +13,7 @@ TEST_CASE("std::array") {
   }
 
   SECTION("initialized with braced initializers") {
-    std::array<int, 10> local_array{ 1, 1, 2, 3};
+    std::array<int, 10> local_array{ 1, 1, 2, 3 };
     REQUIRE(local_array[0] == 1);
     REQUIRE(local_array[1] == 1);
     REQUIRE(local_array[2] == 2);
@@ -23,7 +23,7 @@ TEST_CASE("std::array") {
 }
 
 TEST_CASE("std::array access") {
-   std::array<int, 4> fib{ 1, 1, 0, 3};
+  std::array<int, 4> fib{ 1, 1, 0, 3 };
 
   SECTION("operator[] can get and set elements") {
     fib[2] = 2;
@@ -60,7 +60,7 @@ TEST_CASE("std::array has convenience methods") {
 }
 
 TEST_CASE("We can obtain a pointer to the first element using") {
-  std::array<char, 9> color{ 'o',  'c', 't', 'a', 'r', 'i', 'n', 'e' };
+  std::array<char, 9> color{ 'o', 'c', 't', 'a', 'r', 'i', 'n', 'e' };
   const auto* color_ptr = color.data();
 
   SECTION("data") {
@@ -100,7 +100,7 @@ TEST_CASE("std::array iterators are pointer-like") {
 TEST_CASE("std::array can be used in a range expression") {
   std::array<int, 5> fib{ 1, 1, 2, 3, 5 };
   int sum{};
-  for (auto element : fib) {
+  for(auto element : fib) {
     sum += element;
   }
   REQUIRE(sum == 12);
@@ -146,7 +146,6 @@ TEST_CASE("std::vector insert places new elements") {
   REQUIRE(zeros.size() == 4);
 }
 
-
 TEST_CASE("std::vector push_back places new elements") {
   std::vector<int> zeros(3, 0);
   zeros.push_back(10);
@@ -166,7 +165,6 @@ TEST_CASE("std::vector emplace methods forward arguments") {
 }
 
 // size capacity shrink_to_fit resize reserve max_size clear
-
 
 TEST_CASE("std::vector exposes size management methods") {
   std::vector<std::array<char, 1024>> kb_store;
@@ -197,9 +195,9 @@ TEST_CASE("std::vector exposes size management methods") {
 TEST_CASE("std::deque supports front insertion") {
   std::deque<char> deckard;
   deckard.push_front('a'); //  a
-  deckard.push_back('i');  //  ai
+  deckard.push_back('i'); //  ai
   deckard.push_front('c'); // cai
-  deckard.push_back('n');  // cain
+  deckard.push_back('n'); // cain
   REQUIRE(deckard[0] == 'c');
   REQUIRE(deckard[1] == 'a');
   REQUIRE(deckard[2] == 'i');
@@ -210,7 +208,7 @@ TEST_CASE("std::deque supports front insertion") {
 
 TEST_CASE("std::list supports front insertion") {
   std::list<int> odds{ 11, 22, 33, 44, 55 };
-  odds.remove_if([](int x ) { return x % 2 == 0; });
+  odds.remove_if([](int x) { return x % 2 == 0; });
   auto odds_iter = odds.begin();
   REQUIRE(*odds_iter == 11);
   ++odds_iter;
@@ -237,22 +235,21 @@ TEST_CASE("std::stack supports push/pop") {
   REQUIRE(easy_as.empty());
 }
 
-
 #include <queue>
 
 TEST_CASE("std::queue supports push/pop") {
   std::deque<int> deq{ 1, 2 };
   std::queue<int> easy_as(deq); // 1 2
-  
+
   REQUIRE(easy_as.front() == 1);
   REQUIRE(easy_as.back() == 2);
-  easy_as.pop();   // 2
+  easy_as.pop(); // 2
   easy_as.push(3); // 2 3
   REQUIRE(easy_as.front() == 2);
   REQUIRE(easy_as.back() == 3);
-  easy_as.pop();   // 3
+  easy_as.pop(); // 3
   REQUIRE(easy_as.front() == 3);
-  easy_as.pop();   //
+  easy_as.pop(); //
   REQUIRE(easy_as.empty());
 }
 
@@ -263,16 +260,16 @@ TEST_CASE("std::priority_queue supports push/pop") {
   prique.push(1.0); // 1.0
   prique.push(2.0); // 2.0 1.0
   prique.push(1.5); // 2.0 1.5 1.0
-  
+
   REQUIRE(prique.top() == Approx(2.0));
-  prique.pop();     // 1.5 1.0
-  prique.push(1.0); // 1.5 1.0 1.0 
+  prique.pop(); // 1.5 1.0
+  prique.push(1.0); // 1.5 1.0 1.0
   REQUIRE(prique.top() == Approx(1.5));
-  prique.pop();     // 1.0 1.0
+  prique.pop(); // 1.0 1.0
   REQUIRE(prique.top() == Approx(1.0));
-  prique.pop();     // 1.0
+  prique.pop(); // 1.0
   REQUIRE(prique.top() == Approx(1.0));
-  prique.pop();     //
+  prique.pop(); //
   REQUIRE(prique.empty());
 }
 
@@ -311,41 +308,37 @@ TEST_CASE("std::initializer_list supports") {
 
 size_t square_root(size_t x) {
   auto result = static_cast<size_t>(sqrt(x));
-  if (result * result != x) throw std::logic_error{ "Not a perfect square." };
+  if(result * result != x)
+    throw std::logic_error{ "Not a perfect square." };
   return result;
 }
 
 template <typename T>
 struct SquareMatrix {
-  constexpr SquareMatrix(std::initializer_list<T> val) 
-    : dim{ square_root(val.size()) },
-    data(dim, std::vector<T>{}) {
+  constexpr SquareMatrix(std::initializer_list<T> val)
+      : dim{ square_root(val.size()) }
+      , data(dim, std::vector<T>{}) {
     auto itr = val.begin();
-    for(size_t row{}; row<dim; row++){
-      data[row].assign(itr, itr+dim);
+    for(size_t row{}; row < dim; row++) {
+      data[row].assign(itr, itr + dim);
       itr += dim;
     }
   }
   T& get(size_t row, size_t col) {
-    if (row >= dim || col >= dim)
+    if(row >= dim || col >= dim)
       throw std::out_of_range{ "Index out of range." };
     return data[row][col];
   }
   const size_t dim;
-private:
+
+  private:
   std::vector<std::vector<T>> data;
 };
 
 TEST_CASE("SquareMatrix and std::initializer_list") {
-  SquareMatrix<int> mat {
-     1,  2,  3,  4,
-     5,  0,  7,  8,
-     9, 10, 11, 12,
-    13, 14, 15, 16
-  };
+  SquareMatrix<int> mat{ 1, 2, 3, 4, 5, 0, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
   REQUIRE(mat.dim == 4);
   mat.get(1, 1) = 6;
   REQUIRE(mat.get(1, 1) == 6);
-  REQUIRE(mat.get(0, 2) ==  3);
+  REQUIRE(mat.get(0, 2) == 3);
 }
-

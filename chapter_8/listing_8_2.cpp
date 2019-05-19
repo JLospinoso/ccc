@@ -1,12 +1,12 @@
-﻿#include <cstdio>
-#include <cstdint>
+﻿#include <cstdint>
+#include <cstdio>
 
 void randomize(uint32_t&);
 
 int main() {
   size_t iterations{};
   uint32_t number{ 0x4c4347 };
-  while (number != 0x474343) {
+  while(number != 0x474343) {
     randomize(number);
     ++iterations;
   }

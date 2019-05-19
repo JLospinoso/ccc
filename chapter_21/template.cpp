@@ -3,14 +3,15 @@
 #include <string>
 
 struct Tracer {
-  Tracer(std::string name_in) 
-    : name{ std::move(name_in) } {
+  Tracer(std::string name_in)
+      : name{ std::move(name_in) } {
     std::cout << name << " constructed.\n";
   }
   ~Tracer() {
     std::cout << name << " destructed.\n";
   }
-private:
+
+  private:
   std::string name;
 };
 

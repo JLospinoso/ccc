@@ -15,27 +15,30 @@ struct FibonacciIterator {
   int operator*() const {
     return current;
   }
-private:
+
+  private:
   int current{ 1 }, last{ 1 };
 };
 
 struct FibonacciRange {
-  explicit FibonacciRange(int max) : max{ max } { }
+  explicit FibonacciRange(int max)
+      : max{ max } {}
   FibonacciIterator begin() const {
-      return FibonacciIterator{};
+    return FibonacciIterator{};
   }
   int end() const {
-      return max;
+    return max;
   }
-private:
+
+  private:
   const int max;
 };
 
 int main() {
-  for (auto i : FibonacciRange{ 5000 }) {
-    if (i == 21) {
+  for(auto i : FibonacciRange{ 5000 }) {
+    if(i == 21) {
       printf("*** ");
-        continue;
+      continue;
     }
     printf("%d ", i);
   }
