@@ -1,4 +1,4 @@
-FROM quay.io/jlospinoso/cppbuild
+FROM quay.io/jlospinoso/cppbuild:v1.8.0
 
 RUN mkdir /ccc
 COPY / /ccc/
