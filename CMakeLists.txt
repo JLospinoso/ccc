@@ -5,13 +5,12 @@ project(ccc LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+find_package(Threads)
 
 if(MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17")
-    set(PTHREAD_LIBRARIES)
 else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z")
-    set(PTHREAD_LIBRARIES pthread)
 endif(MSVC)
 
 #################$
@@ -23,8 +22,10 @@ include_directories("third_party/asutton/origin")
 #################
 # Boost Library #
 #################
-
-find_package(Boost COMPONENTS date_time system filesystem unit_test_framework program_options REQUIRED)
+set(Boost_USE_STATIC_LIBS ON)
+set(Boost_USE_MULTITHREADED ON)
+add_definitions(-D_WIN32_WINNT=0x0501)
+find_package(Boost COMPONENTS regex date_time system filesystem unit_test_framework program_options REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 
 macro(boosttest_add_test TESTNAME)

@@ -14,6 +14,6 @@ add_executable(sigint sigint.cpp)
 add_executable(dedication dedication.cpp)
 
 if(MSVC)
-    add_executable(program_options_demo program_options.cpp)
-    target_link_libraries(program_options_demo PRIVATE ${Boost_LIBRARIES})
+  add_executable(prog_ops program_options.cpp)
+  target_link_libraries(prog_ops PRIVATE ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 endif(MSVC)
