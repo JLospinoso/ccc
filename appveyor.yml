@@ -1,15 +1,13 @@
 version: '{build}'
 image: Ubuntu1804
-environment:
-  CXX: g++-8
 install:
 - sh: git submodule update --init --recursive
 - sh: sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 - sh: sudo apt-get update
-- sh: sudo apt-get install -y libboost-all-dev
+- sh: sudo apt-get install -y libboost-all-dev gcc-8
 build_script:
 - sh: mkdir build
 - sh: cd build
-- sh: cmake .. -DCMAKE_BUILD_TYPE=Release
+- sh: CXX=g++-8 cmake .. -DCMAKE_BUILD_TYPE=Release
 - sh: make -j2
 - sh: env CTEST_OUTPUT_ON_FAILURE=1 ctest --verbose
