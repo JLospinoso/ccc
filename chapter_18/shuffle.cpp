@@ -18,7 +18,7 @@ int main() {
     shuffle(result.begin(), result.end(), urbg);
     samples[result]++;
   }
-  for(auto [sample, n] : samples) {
+  for(const auto [sample, n] : samples) {
     const auto percentage = 100 * n / static_cast<double>(n_samples);
     cout << percentage << " '" << sample << "'\n";
   }
