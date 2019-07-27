@@ -14,7 +14,7 @@ struct Mutant {
 int main() {
   std::unique_ptr<Foundation> second_foundation{ new Foundation{} };
   // ... use second_foundation
-  Mutant the_mule(move(second_foundation));
+  Mutant the_mule{ std::move(second_foundation) };
   // second_foundation is in a 'moved-from' state
-  // the_mule owns the Foundation*
+  // the_mule owns the Foundation
 }
