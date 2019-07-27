@@ -11,7 +11,7 @@ struct Heap {
   void* allocate(size_t bytes) {
     if(bytes > Bucket::data_size)
       throw std::bad_alloc();
-    for(auto i = 0; i < n_heap_buckets; i++) {
+    for(size_t i{}; i < n_heap_buckets; i++) {
       if(!bucket_used[i]) {
         bucket_used[i] = true;
         return buckets[i].data;
@@ -21,7 +21,7 @@ struct Heap {
   }
 
   void free(void* p) {
-    for(auto i = 0; i < n_heap_buckets; i++) {
+    for(size_t i{}; i < n_heap_buckets; i++) {
       if(buckets[i].data == p) {
         bucket_used[i] = false;
         return;

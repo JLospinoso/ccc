@@ -2,7 +2,7 @@
 #include <cstdio>
 #include <type_traits>
 
-const char* as_str(bool x) {
+constexpr const char* as_str(bool x) {
   return x ? "True" : "False";
 }
 
