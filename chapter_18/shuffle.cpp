@@ -8,7 +8,7 @@
 using namespace std;
 
 int main() {
-  const string population{ "ABCD" };
+  const string population = "ABCD";
   const size_t n_samples{ 1'000'000 };
   mt19937_64 urbg;
   map<string, size_t> samples;

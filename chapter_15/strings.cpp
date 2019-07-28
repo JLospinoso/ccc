@@ -41,7 +41,7 @@ TEST_CASE("constructing a string with") {
   SECTION("operator\"\"s incorporates embedded nulls") {
     using namespace std::string_literals;
     auto str_lit = "idioglossia\0ellohay!"s;
-    REQUIRE(str_lit.size() == 20);
+    REQUIRE(str_lit.length() == 20);
   }
 }
 
