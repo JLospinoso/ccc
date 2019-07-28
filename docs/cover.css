@@ -27,7 +27,7 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #446a7c;
+  background-color: #005980;
 }
 
 body {
@@ -35,6 +35,10 @@ body {
   display: flex;
   color: #fff;
   text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+}
+
+.card {
+  background-color: #00405c;
 }
 
 .cover-container {
