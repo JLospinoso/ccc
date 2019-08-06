@@ -1,227 +1,455 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144863583-1"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-		  gtag('config', 'UA-144863583-1');
-		</script>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="The Companion Website for C++ Crash Course">
-		<meta name="author" content="Josh Lospinoso">
-		<link rel="icon" href="https://v4-alpha.getbootstrap.com/favicon.ico">
-		<title>C++ Crash Course</title>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-		<link href="cover.css" rel="stylesheet">
-  </head>
+    <meta name="description" content="The Companion Website for C++ Crash Course">
+    <meta name="author" content="Josh Lospinoso">
+    <link rel="icon" href="https://v4-alpha.getbootstrap.com/favicon.ico">
+    <title>C++ Crash Course</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="cover.css" rel="stylesheet">
+</head>
 
-  <body class="text-center">
-      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="masthead mb-auto">
-        <div class="inner">
-          <h3 class="masthead-brand">C++ Crash Course</h3>
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="#">Home</a>
-            <a class="nav-link" href="https://github.com/JLospinoso/ccc">Code</a>
-            <a class="nav-link" href="https://nostarch.com/cppcrashcourse">Book</a>
-          </nav>
+<body>
+
+<div class="container">
+    <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-6 pt-1">
+                <a href="#"><h3>C++ Crash Course</h3></a>
+            </div>
+            <div class="col-6 d-flex justify-content-end align-items-center">
+                <div class="fluid">
+                    <a class="md-3 text-muted" href="https://github.com/JLospinoso/ccc">
+                        <button type="button" class="btn btn-primary">Download Code Samples</button>
+                    </a>
+                </div>
+            </div>
         </div>
-      </header>
-      <main role="main" class="inner cover">
+    </header>
 
-			<a href="https://nostarch.com/cppcrashcourse"><img width="475px" class="shadow-lg rounded img-fluid my-3" src="cppcc.png" /></a>
-
-			<h1 class="cover-heading"><a href="https://nostarch.com/cppcrashcourse">Available in Early Access.</a></h1>
-			<div class="lead my-4">
-        <h2><a href="https://github.com/JLospinoso/ccc" class="">Code here.</a> Links below.</h2>
-      </p>
-    	<div>
-				<div class="card">
-					<div class="card-body">
-						<h4 class="card-title">Introduction</h4>
-						<p class="card-text text-left">p. xxxv: <a class="card-text" href="https//github.com/JLospinoso/ccc">Companion Code</a></p>
-					</div>
-				</div>
-
-				<div class="card">
-					<div class="card-body">
-						<h4 class="card-title">Foreword: An Overture to C Programmers</h4>
-				<p class="text-left">p. xxxix: <a href="https://lospi.net/c/c++/programming/developing/software/2019/04/28/c-constructs-that-dont-work-in-cpp.html">C Constructs That Don't Work in C++</a></p>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="card-body">
-				<h4 class="card-title">Chapter 1: Up and Running</h4>
-				<p class="text-left">p. 6: <a href="https://wandbox.org">Wandbox</a></p>
-				<p class="text-left">p. 6: <a href="https://godbolt.org">Compiler Explorer</a></p>
-				<p class="text-left">p. 6: <a href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15">Visual Studio 2017 Community Edition Download</a></p>
-				<p class="text-left">p. 10: <a href="https://gcc.gnu.org/">GCC, the GNU Compiler Collection</a></p>
-				<p class="text-left">p. 10: <a href="https://clang.llvm.org/">Clang: a C language family frontend for LLVM</a></p>
-				<p class="text-left">p. 11: <a href="https://gcc.gnu.org/mirrors.html">GCC mirror sites</a></p>
-				<p class="text-left">p. 11: <a href="https://gnupg.org/download/integrity_check.html">GnuPG</a></p>
-				<p class="text-left">p. 12: <a href="https://gcc.gnu.org/install/configure.html">Installing GCC: Configuration</a></p>
-				<p class="text-left">p. 12: <a href="https://gcc.gnu.org/install/build.html">Installing GCC: Building</a></p>
-				<p class="text-left">p. 12: <a href="https://gcc.gnu.org/install/test.html">Installing GCC: Testing</a></p>
-				<p class="text-left">p. 12: <a href="https://gcc.gnu.org/install/">Installing GCC</a></p>
-				<p class="text-left">p. 12: <a href="https://gcc.gnu.org/ml/gcc-help/">The gcc-help mailing list archives</a></p>
-				<p class="text-left">p. 23: <a href="https://docs.microsoft.com/en-us/cpp/ide/walkthrough-debugging-a-project-cpp?view=vs-2017">Visual Studio Walkthrough: Debugging a Project (C++)</a></p>
-				<p class="text-left">p. 25: <a href="https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/Introduction.html">About LLDB and Xcode</a></p>
-				<p class="text-left">p. 25: <a href="https://www.gnu.org/software/gdb/">GDB: The GNU Project Debugger</a></p>
-				<p class="text-left">p. 25: <a href="https://lldb.llvm.org/">The LLDB Debugger</a></p>
-				<p class="text-left">p. 28: <a href="https://sourceware.org/gdb/current/onlinedocs/gdb/">Debugging with GDB</a></p>
-				<p class="text-left">p. 28: <a href="https://stackoverflow.com/">Stack Overflow</a></p>
-				<p class="text-left">p. 28: <a href="https://www.reddit.com/r/cpp_questions/">CPP Subreddit</a></p>
-				<p class="text-left">p. 28: <a href="https://cpplang.now.sh/">CPP Slack</a></p>
-				<p class="text-left">p. 29: <a href="https://cppcast.com/">CPPCast</a></p>
-				<p class="text-left">p. 29: <a href="https://en.cppreference.com/w/">CPPReference</a></p>
-				<p class="text-left">p. 29: <a href="http://www.cplusplus.com/">CPlusPlus</a></p>
-				<p class="text-left">p. 29: <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4713.pdf">The "Draft" ISO C++ Standard (2017)</a></p>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="card-body">
-				<h4 class="card-title">Chapter 2: Types</h4>
-				<p class="text-left">p. 35: <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1605.pdf">The IEEE Standard for Floating-Point Arithmetic, IEEE 754.</a></p>
-				<p class="text-left">p. 65: <a href="http://www.drdobbs.com/c-made-easier-plain%20-old-data/184401508/">C++ Made Easier: Plain Old Data</a></p>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="card-body">
-				<h4 class="card-title">Chapter 3: Reference Types</h4>
-				<p class="text-left">p. 86: <a href="https://docs.microsoft.com/en-us/security-updates/securitybulletins/2001/ms01-033">Microsoft Security Bulletin MS01-033 - Critical (Code Red)</a></p>
-				<p class="text-left">p. 87: <a href="https://github.com/isocpp/CppCoreGuidelines/">C++ Core Guidelines</a></p>
-				<p class="text-left">p. 87: <a href="https://levelofindirection.com/">East End Functions</a></p>
-				<p class="text-left">p. 87: <a href="https://isocpp.org/wiki/faq/references/">References</a></p>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="card-body">
-				<h4 class="card-title">Chapter 6: Compile-time Polymorphism</h4>
-				<p class="text-left">p. 171: <a href="https://github.com/asutton/origin/">The Origin Library</a></p>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="card-body">
-				<h4 class="card-title">Chapter 7: Expressions</h4>
-				<p class="text-left">p. 189: <a href="https://docs.microsoft.com/en-us/windows/win32/api/heapapi/nf-heapapi-heapalloc">HeapAlloc</a></p>
-				<p class="text-left">p. 189: <a href="http://man7.org/linux/man-pages/man3/malloc.3.html">malloc</a></p>
-				<p class="text-left">p. 207: <a href="https://en.wikipedia.org/wiki/HSL_and_HSV#Color_conversion_formulae">HSV Conversion</a></p>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="card-body">
-				<h4 class="card-title">Chapter 10: Testing</h4>
-				<p class="text-left">p. 304-5, 309: <a href="https://github.com/catchorg/Catch2">Catch2</a></p>
-				<p class="text-left">p. 310, 325, 328: <a href="https://github.com/google/googletest/blob/master/README.md">Google Test/Google Mocks Documentation</a></p>
-				<p class="text-left">p. 317: <a href="https://www.boost.org/doc/libs/1_70_0/libs/test/doc/html/index.html">Boost Test</a></p>
-				<p class="text-left">p. 333: <a href="https://github.com/dascandy/hippomocks/">HippoMocks</a></p>
-				<p class="text-left">p. 337: <a href="https://github.com/eranpeer/FakeIt/">FakeIt</a></p>
-				<p class="text-left">p. 337: <a href="https://github.com/rollbear/trompeloeil">Trompeloeil</a></p>
-				<p class="text-left">p. 339: <a href="https://en.wikipedia.org/wiki/Editor_war">Editor War</a></p>
-				<p class="text-left">p. 339: <a href="https://martinfowler.com/articles/is-tdd-dead/">Is TDD Dead?</a></p>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="card-body">
-				<h4 class="card-title">Chapter 11: Smart Pointers</h4>
-				<p class="text-left">p. 349: <a href="https://www.boost.org/doc/libs/1_70_0/libs/smart_ptr/doc/html/smart_ptr.html">Boost Smart Pointer</a></p>
-				<p class="text-left">p. 363: <a href="https://www.boost.org/doc/libs/1_70_0/doc/html/intrusive.html">Boost Intrusive</a></p>
-				<p class="text-left">p. 387: <a href="https://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html">Boost DateTime</a></p>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="card-body">
-				<h4 class="card-title">Chapter 12: Utilities</h4>
-				<p class="text-left">p. 401-403: <a href="https://www.boost.org/doc/libs/1_70_0/libs/numeric/conversion/doc/html/index.html">Boost Numeric Conversion</a></p>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="card-body">
-				<h4 class="card-title">Chapter 13: Containers</h4>
-				<p class="text-left">p. 415: <a href="https://en.cppreference.com/w/">CPPReference</a></p>
-				<p class="text-left">p. 415: <a href="http://www.cplusplus.com/">CPlusPlus</a></p>
-				<p class="text-left">p. 433: <a href="https://www.boost.org/doc/libs/1_70_0/doc/html/container.html">Boost Container</a></p>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="card-body">
-				<h4 class="card-title">Chapter 15: Strings</h4>
-				<p class="text-left">p. 500: <a href="https://www.boost.org/doc/libs/1_70_0/doc/html/boost_lexical_cast.html">Boost Lexical Cast</a></p>
-				<p class="text-left">p. 512, 515: <a href="https://www.boost.org/doc/libs/1_70_0/doc/html/string_algo.html">Boost String Algorithms</a></p>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="card-body">
-				<h4 class="card-title">Chapter 17: Filesystems</h4>
-				<p class="text-left">p. 551: <a href="https://www.boost.org/doc/libs/1_70_0/libs/filesystem/doc/index.htm">Boost Filesystem</a></p>
-				<p class="text-left">p. 571: <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/dir">The dir Command</a></p>
-				<p class="text-left">p. 571: <a href="http://man7.org/linux/man-pages/man1/ls.1.html">The ls Command</a></p>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="card-body">
-				<h4 class="card-title">Chapter 18: Algorithms</h4>
-				<p class="text-left">p. 637: <a href="https://www.boost.org/doc/libs/1_70_0/libs/algorithm/doc/html/index.html">Boost Algorithm</a></p>
-				<p class="text-left">p. 638: <a href="https://www.boost.org/doc/libs/1_70_0/libs/range/doc/html/index.html">Boost Range</a></p>
-				<p class="text-left">p. 638: <a href="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Algorithmic%20Complexity/complexity.html">Algorithmic Complexity</a></p>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="card-body">
-				<h4 class="card-title">Chapter 19: Concurrency and Parallelism</h4>
-				<p class="text-left">p. 643: <a href="https://en.wikipedia.org/wiki/Integer_factorization">Integer Factorization</a></p>
-				<p class="text-left">p. 655: <a href="https://www.boost.org/doc/libs/1_70_0/doc/html/lockfree.html">Boost Lockfree</a></p>
-				<p class="text-left">p. 662: <a href="http://www.drdobbs.com/cpp/c-and-the-perils-of-double-checked-locki/184405726/">C++ and The Perils of Double-Checked Locking</a></p>
-				<p class="text-left">p. 662: <a href="https://herbsutter.com/2010/09/24/effective-concurrency-know-when-to-use-an-active-object-instead-of-a-mutex/">Effective Concurrency: Know When to Use an Active Object Instead of a Mutex</a></p>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="card-body">
-				<h4 class="card-title">Chapter 20: Network Programming with Boost Asio</h4>
-				<p class="text-left">p. 665: <a href="https://www.boost.org/doc/libs/1_70_0/doc/html/boost_asio.html">Boost Asio</a></p>
-				<p class="text-left">p. 667: <a href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml">IANA Service Name and Transport Protocol Port Number Registry</a></p>
-				<p class="text-left">p. 677: <a href="https://www.boost.org/doc/libs/1_70_0/libs/beast/doc/html/index.html">Boost Beast</a></p>
-				<p class="text-left">p. 677: <a href="https://www.ietf.org/standards/rfcs/">IETF RFCs</a></p>
-				<p class="text-left">p. 677: <a href="https://www.boost.org/doc/libs/1_70_0/libs/beast/doc/html/beast/examples.html">Boost Beast example projects</a></p>
-				<p class="text-left">p. 684: <a href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml">IANA Service Name and Transport Protocol Port Number Registry</a></p>
-				<p class="text-left">p. 685: <a href="https://nmap.org/ncat/">netcat</a></p>
-				<p class="text-left">p. 689: <a href="https://nmap.org/">nmap</a></p>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="card-body">
-				<h4 class="card-title">Chapter 21: Applications</h4>
-				<p class="text-left">p. 704: <a href="https://www.boost.org/doc/libs/1_70_0/doc/html/program_options.html">Boost Program Options</a></p>
-				<p class="text-left">p. 713: <a href="https://www.boost.org/doc/libs/1_70_0/libs/parameter_python/doc/html/index.html">Boost Python</a></p>
-			</div>
-		</div>
-    	</div>
-      </main>
-      <footer class="mastfoot mt-auto">
-        <div class="inner">
-          <p>Copyright &copy; 2019 <a href="https://lospi.net">Josh Lospinoso</a></p>
+    <div class="jumbotron p-3 p-md-5 rounded">
+        <div class="container">
+            <a href="https://nostarch.com/cppcrashcourse">
+                <a href="cppcc.svg"><img src="cppcc.svg" class="img-fluid" alt="C++ Crash Course"></a>
+                <hr class="my-4">
+                <h1 class="display-4">Modern C++, Compiled and Optimized</h1>
+                <p class="lead">C++ Crash Course is a fast-paced, thorough introduction to Modern C++ for experienced
+                    programmers.</p>
+            </a>
         </div>
-      </footer>
     </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</body></html>
+
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-primary">Ships Early September!</strong>
+                    <h3 class="mb-0">C++ Crash Course is off to the printers.</h3>
+                    <p class="card-text mb-auto">If you can't wait, you can purchase the book in Early Access directly
+                        from the publisher, <a href="https://nostarch.com/cppcrashcourse">No Starch Press</a>. </p>
+                </div>
+                <a href="https://nostarch.com/cppcrashcourse"><img class="card-img-right flex-auto d-none d-md-block"
+                                                                   width="200px" height="264" src="cppcc.png"
+                                                                   alt="No Starch"></a>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-success">Available for Preorder</strong>
+                    <h3 class="mb-0">Ask your local bookstore for a copy.</h3>
+                    <p>(Or if you're not into the in-person thing, order online!)</p>
+                    <ul>
+                        <li><a href="https://nostarch.com/cppcrashcourse">No Starch Press</a></li>
+                        <li><a href="https://www.amazon.com/C-Crash-Course-Josh-Lospinoso/dp/1593278888">Amazon</a></li>
+                        <li>
+                            <a href="https://www.barnesandnoble.com/w/c-crash-course-josh-lospinoso/1132189073?ean=9781593278885#/">Barnes
+                                &amp; Noble</a></li>
+                        <li>
+                            <a href="https://www.penguinrandomhouse.com/books/568138/c-crash-course-by-joshua-alfred-lospinoso/9781593278885/">Penguin
+                                Random House</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h3 id="about" class="pb-3 mb-4 font-italic border-bottom">About C++ Crash Course</h3>
+
+            <h5>A fast-paced, thorough introduction to modern C++ written for experienced programmers. After reading C++
+                Crash Course, you’ll be proficient in the core language concepts, the C++ Standard Library, and the
+                Boost Libraries.</h5>
+
+            <p>C++ is one of the most widely used languages for real-world software. In the hands of a knowledgeable
+                programmer, C++ can produce small, efficient, and readable code that any programmer would be proud
+                of.</p>
+
+            <p>Designed for intermediate to advanced programmers, C++ Crash Course cuts through the weeds to get you
+                straight to the core of C++17, the most modern revision of the ISO standard. Part 1 covers the core of
+                the C++ language, where you’ll learn about everything from types and functions, to the object life cycle
+                and expressions. Part 2 introduces you to the C++ Standard Library and Boost Libraries, where you’ll
+                learn about all of the high-quality, fully-featured facilities available to you. You’ll cover special
+                utility classes, data structures, and algorithms, and learn how to manipulate file systems and build
+                high-performance programs that communicate over networks. </p>
+
+            <p>You’ll learn all the major features of modern C++, including:</p>
+
+            <ul>
+                <li>Fundamental types, reference types, and user-defined types</li>
+                <li>The object lifecycle including storage duration, memory management, exceptions, call stacks, and the
+                    RAII paradigm
+                </li>
+                <li>Compile-time polymorphism with templates and run-time polymorphism with virtual classes</li>
+                <li>Advanced expressions, statements, and functions</li>
+                <li>Smart pointers, data structures, dates and times, numerics, and probability/statistics facilities
+                </li>
+                <li>Containers, iterators, strings, and algorithms</li>
+                <li>Streams and files, concurrency, networking, and application development</li>
+            </ul>
+
+
+        </div><!-- /.blog-main -->
+
+        <aside class="col-md-4 blog-sidebar">
+            <div class="p-3 mb-3 rounded">
+                <h4 class="font-italic"><a href="toc.pdf" target="_blank">Table of Contents available for download here.</a></h4>
+                <p class="mb-0"></p>
+            </div>
+
+            <div class="p-3">
+                <h4 class="font-italic">Links</h4>
+                <ol class="list-unstyled mb-0">
+                    <li><a href="#about">About C++ Crash Course</a></li>
+                    <li><a href="toc.pdf" target="_blank">Table of Contents</a></li>
+                    <li><a href="#code">Companion Code</a></li>
+                  <li><a href="#links">Up-to-date Links &amp; Errata</a></li>
+                  <li><a href="https://lospi.net/c/c++/programming/developing/software/2019/07/28/cpp-crash-course.html">On Writing a C++ Book</a></li>
+
+                </ol>
+            </div>
+
+            <div class="p-3">
+              <h4 class="font-italic">Say Hi, or Leave a Review</h4>
+                <ol class="list-unstyled">
+                  <li><a href="#">Twitter</a></li>
+                  <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Good Reads</a></li>
+                    <li><a href="mailto:ccc@lospi.net">Email the Author</a></li>
+                </ol>
+            </div>
+        </aside><!-- /.blog-sidebar -->
+
+        <div class="col-md-8">
+            <h3 id="code" class="pb-3 mb-4 font-italic border-bottom">Downloading the Code</h3>
+
+            <h5>C++ Crash Course contains well over 500 code samples &amp; nearly 100 exercises.</h5>
+
+            <a href="https://github.com/JLospinoso/ccc"><p>You can download all of them from Github.</p></a>
+
+            <p>You can clone the repository:</p>
+
+            <p><pre><code>git clone git@github.com:JLospinoso/ccc</code></pre></p>
+
+            <p>Or simply download the files using your browser:</p>
+
+            <p><a href="https://github.com/JLospinoso/ccc/archive/master.zip">
+                <button type="button" class="btn btn-primary">Download the .ZIP</button>
+            </a></p>
+
+            <p>So long as you have CMake, Boost, and git installed, you can then build all the examples with an out-of-source build:</p>
+
+            <p>
+            <pre><code>cd ccc
+git submodule init
+git submodule update
+mkdir build
+cd build
+cmake ..</code></pre>
+            </p>
+
+        </div>
+
+        <div class="col-md-8">
+            <h3 class="pb-3 mb-4 font-italic border-bottom" id="links">Up-to-date Links &amp; Errata</h3>
+            <h4 class="font-italic">Introduction</h4>
+
+            <p class="card-text text-left">p. xxxv: <a class="card-text"
+                                                       href="https//github.com/JLospinoso/ccc">Companion
+                Code</a></p>
+
+            <h4 class="font-italic">Foreword: An Overture to C Programmers</h4>
+            <p class="text-left">p. xxxix: <a
+                    href="https://lospi.net/c/c++/programming/developing/software/2019/04/28/c-constructs-that-dont-work-in-cpp.html">C
+                Constructs That Don't Work in C++</a></p>
+
+
+            <h4 class="font-italic">Chapter 1: Up and Running</h4>
+            <p class="text-left">p. 6: <a href="https://wandbox.org">Wandbox</a></p>
+
+            <p class="text-left">p. 6: <a href="https://godbolt.org">Compiler Explorer</a></p>
+
+            <p class="text-left">p. 6: <a
+                    href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15">Visual
+                Studio 2017 Community Edition Download</a></p>
+
+            <p class="text-left">p. 10: <a href="https://gcc.gnu.org/">GCC, the GNU Compiler Collection</a>
+            </p>
+
+            <p class="text-left">p. 10: <a href="https://clang.llvm.org/">Clang: a C language family
+                frontend for LLVM</a></p>
+
+            <p class="text-left">p. 11: <a href="https://gcc.gnu.org/mirrors.html">GCC mirror sites</a></p>
+
+            <p class="text-left">p. 11: <a href="https://gnupg.org/download/integrity_check.html">GnuPG</a>
+            </p>
+
+            <p class="text-left">p. 12: <a href="https://gcc.gnu.org/install/configure.html">Installing GCC:
+                Configuration</a></p>
+
+            <p class="text-left">p. 12: <a href="https://gcc.gnu.org/install/build.html">Installing GCC:
+                Building</a></p>
+
+            <p class="text-left">p. 12: <a href="https://gcc.gnu.org/install/test.html">Installing GCC:
+                Testing</a></p>
+
+            <p class="text-left">p. 12: <a href="https://gcc.gnu.org/install/">Installing GCC</a></p>
+
+            <p class="text-left">p. 12: <a href="https://gcc.gnu.org/ml/gcc-help/">The gcc-help mailing list
+                archives</a></p>
+
+            <p class="text-left">p. 23: <a
+                    href="https://docs.microsoft.com/en-us/cpp/ide/walkthrough-debugging-a-project-cpp?view=vs-2017">Visual
+                Studio Walkthrough: Debugging a Project (C++)</a></p>
+
+            <p class="text-left">p. 25: <a
+                    href="https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/Introduction.html">About
+                LLDB and Xcode</a></p>
+
+            <p class="text-left">p. 25: <a href="https://www.gnu.org/software/gdb/">GDB: The GNU Project
+                Debugger</a></p>
+
+            <p class="text-left">p. 25: <a href="https://lldb.llvm.org/">The LLDB Debugger</a></p>
+
+            <p class="text-left">p. 28: <a href="https://sourceware.org/gdb/current/onlinedocs/gdb/">Debugging
+                with GDB</a></p>
+
+            <p class="text-left">p. 28: <a href="https://stackoverflow.com/">Stack Overflow</a></p>
+
+            <p class="text-left">p. 28: <a href="https://www.reddit.com/r/cpp_questions/">CPP Subreddit</a>
+            </p>
+
+            <p class="text-left">p. 28: <a href="https://cpplang.now.sh/">CPP Slack</a></p>
+
+            <p class="text-left">p. 29: <a href="https://cppcast.com/">CPPCast</a></p>
+
+            <p class="text-left">p. 29: <a href="https://en.cppreference.com/w/">CPPReference</a></p>
+
+            <p class="text-left">p. 29: <a href="http://www.cplusplus.com/">CPlusPlus</a></p>
+
+            <p class="text-left">p. 29: <a
+                    href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4713.pdf">The "Draft" ISO
+                C++ Standard (2017)</a></p>
+
+
+            <h4 class="font-italic">Chapter 2: Types</h4>
+            <p class="text-left">p. 35: <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1605.pdf">The
+                IEEE Standard for Floating-Point Arithmetic, IEEE 754.</a></p>
+
+            <p class="text-left">p. 65: <a
+                    href="http://www.drdobbs.com/c-made-easier-plain%20-old-data/184401508/">C++ Made
+                Easier: Plain Old Data</a></p>
+
+
+            <h4 class="font-italic">Chapter 3: Reference Types</h4>
+            <p class="text-left">p. 86: <a
+                    href="https://docs.microsoft.com/en-us/security-updates/securitybulletins/2001/ms01-033">Microsoft
+                Security Bulletin MS01-033 - Critical (Code Red)</a></p>
+
+            <p class="text-left">p. 87: <a href="https://github.com/isocpp/CppCoreGuidelines/">C++ Core
+                Guidelines</a></p>
+
+            <p class="text-left">p. 87: <a href="https://levelofindirection.com/">East End Functions</a></p>
+
+            <p class="text-left">p. 87: <a href="https://isocpp.org/wiki/faq/references/">References</a></p>
+
+
+            <h4 class="font-italic">Chapter 6: Compile-time Polymorphism</h4>
+            <p class="text-left">p. 171: <a href="https://github.com/asutton/origin/">The Origin Library</a>
+            </p>
+
+
+            <h4 class="font-italic">Chapter 7: Expressions</h4>
+            <p class="text-left">p. 189: <a
+                    href="https://docs.microsoft.com/en-us/windows/win32/api/heapapi/nf-heapapi-heapalloc">HeapAlloc</a>
+            </p>
+
+            <p class="text-left">p. 189: <a
+                    href="http://man7.org/linux/man-pages/man3/malloc.3.html">malloc</a></p>
+
+            <p class="text-left">p. 207: <a
+                    href="https://en.wikipedia.org/wiki/HSL_and_HSV#Color_conversion_formulae">HSV
+                Conversion</a></p>
+
+
+            <h4 class="font-italic">Chapter 10: Testing</h4>
+            <p class="text-left">p. 304-5, 309: <a href="https://github.com/catchorg/Catch2">Catch2</a></p>
+
+            <p class="text-left">p. 310, 325, 328: <a
+                    href="https://github.com/google/googletest/blob/master/README.md">Google Test/Google
+                Mocks Documentation</a></p>
+
+            <p class="text-left">p. 317: <a
+                    href="https://www.boost.org/doc/libs/1_70_0/libs/test/doc/html/index.html">Boost
+                Test</a></p>
+
+            <p class="text-left">p. 333: <a href="https://github.com/dascandy/hippomocks/">HippoMocks</a>
+            </p>
+
+            <p class="text-left">p. 337: <a href="https://github.com/eranpeer/FakeIt/">FakeIt</a></p>
+
+            <p class="text-left">p. 337: <a href="https://github.com/rollbear/trompeloeil">Trompeloeil</a>
+            </p>
+
+            <p class="text-left">p. 339: <a href="https://en.wikipedia.org/wiki/Editor_war">Editor War</a>
+            </p>
+
+            <p class="text-left">p. 339: <a href="https://martinfowler.com/articles/is-tdd-dead/">Is TDD
+                Dead?</a></p>
+
+
+            <h4 class="font-italic">Chapter 11: Smart Pointers</h4>
+            <p class="text-left">p. 349: <a
+                    href="https://www.boost.org/doc/libs/1_70_0/libs/smart_ptr/doc/html/smart_ptr.html">Boost
+                Smart Pointer</a></p>
+            <p class="text-left">p. 363: <a
+                    href="https://www.boost.org/doc/libs/1_70_0/doc/html/intrusive.html">Boost Intrusive</a>
+            </p>
+            <p class="text-left">p. 387: <a
+                    href="https://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html">Boost DateTime</a>
+            </p>
+
+
+            <h4 class="font-italic">Chapter 12: Utilities</h4>
+            <p class="text-left">p. 401-403: <a
+                    href="https://www.boost.org/doc/libs/1_70_0/libs/numeric/conversion/doc/html/index.html">Boost
+                Numeric Conversion</a></p>
+
+
+            <h4 class="font-italic">Chapter 13: Containers</h4>
+            <p class="text-left">p. 415: <a href="https://en.cppreference.com/w/">CPPReference</a></p>
+            <p class="text-left">p. 415: <a href="http://www.cplusplus.com/">CPlusPlus</a></p>
+            <p class="text-left">p. 433: <a
+                    href="https://www.boost.org/doc/libs/1_70_0/doc/html/container.html">Boost Container</a>
+            </p>
+
+
+            <h4 class="font-italic">Chapter 15: Strings</h4>
+            <p class="text-left">p. 500: <a
+                    href="https://www.boost.org/doc/libs/1_70_0/doc/html/boost_lexical_cast.html">Boost
+                Lexical Cast</a></p>
+            <p class="text-left">p. 512, 515: <a
+                    href="https://www.boost.org/doc/libs/1_70_0/doc/html/string_algo.html">Boost String
+                Algorithms</a></p>
+
+
+            <h4 class="font-italic">Chapter 17: Filesystems</h4>
+            <p class="text-left">p. 551: <a
+                    href="https://www.boost.org/doc/libs/1_70_0/libs/filesystem/doc/index.htm">Boost
+                Filesystem</a></p>
+            <p class="text-left">p. 571: <a
+                    href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/dir">The
+                dir Command</a></p>
+            <p class="text-left">p. 571: <a href="http://man7.org/linux/man-pages/man1/ls.1.html">The ls
+                Command</a></p>
+
+            <h4 class="font-italic">Chapter 18: Algorithms</h4>
+            <p class="text-left">p. 637: <a
+                    href="https://www.boost.org/doc/libs/1_70_0/libs/algorithm/doc/html/index.html">Boost
+                Algorithm</a></p>
+            <p class="text-left">p. 638: <a
+                    href="https://www.boost.org/doc/libs/1_70_0/libs/range/doc/html/index.html">Boost
+                Range</a></p>
+            <p class="text-left">p. 638: <a
+                    href="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Algorithmic%20Complexity/complexity.html">Algorithmic
+                Complexity</a></p>
+
+            <h4 class="font-italic">Chapter 19: Concurrency and Parallelism</h4>
+            <p class="text-left">p. 643: <a href="https://en.wikipedia.org/wiki/Integer_factorization">Integer
+                Factorization</a></p>
+            <p class="text-left">p. 655: <a
+                    href="https://www.boost.org/doc/libs/1_70_0/doc/html/lockfree.html">Boost Lockfree</a>
+            </p>
+            <p class="text-left">p. 662: <a
+                    href="http://www.drdobbs.com/cpp/c-and-the-perils-of-double-checked-locki/184405726/">C++
+                and The Perils of Double-Checked Locking</a></p>
+            <p class="text-left">p. 662: <a
+                    href="https://herbsutter.com/2010/09/24/effective-concurrency-know-when-to-use-an-active-object-instead-of-a-mutex/">Effective
+                Concurrency: Know When to Use an Active Object Instead of a Mutex</a></p>
+
+
+            <h4 class="font-italic">Chapter 20: Network Programming with Boost Asio</h4>
+            <p class="text-left">p. 665: <a
+                    href="https://www.boost.org/doc/libs/1_70_0/doc/html/boost_asio.html">Boost Asio</a></p>
+            <p class="text-left">p. 667: <a
+                    href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml">IANA
+                Service Name and Transport Protocol Port Number Registry</a></p>
+            <p class="text-left">p. 677: <a
+                    href="https://www.boost.org/doc/libs/1_70_0/libs/beast/doc/html/index.html">Boost
+                Beast</a></p>
+            <p class="text-left">p. 677: <a href="https://www.ietf.org/standards/rfcs/">IETF RFCs</a></p>
+            <p class="text-left">p. 677: <a
+                    href="https://www.boost.org/doc/libs/1_70_0/libs/beast/doc/html/beast/examples.html">Boost
+                Beast example projects</a></p>
+            <p class="text-left">p. 684: <a
+                    href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml">IANA
+                Service Name and Transport Protocol Port Number Registry</a></p>
+            <p class="text-left">p. 685: <a href="https://nmap.org/ncat/">netcat</a></p>
+            <p class="text-left">p. 689: <a href="https://nmap.org/">nmap</a></p>
+
+
+            <h4 class="font-italic">Chapter 21: Applications</h4>
+            <p class="text-left">p. 704: <a
+                    href="https://www.boost.org/doc/libs/1_70_0/doc/html/program_options.html">Boost Program
+                Options</a></p>
+            <p class="text-left">p. 713: <a
+                    href="https://www.boost.org/doc/libs/1_70_0/libs/parameter_python/doc/html/index.html">Boost
+                Python</a></p>
+        </div>
+    </div><!-- /.row -->
+
+
+</main><!-- /.container -->
+
+<footer class="footer-copyright text-center py-3">
+    <p>Copyright &copy; 2019 <a href="https://lospi.net">Josh Lospinoso</a></p>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script>
+    Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+    });
+</script>
+</body>
+</html>
