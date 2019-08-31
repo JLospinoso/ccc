@@ -15,5 +15,5 @@ add_executable(dedication dedication.cpp)
 
 if(MSVC)
   add_executable(prog_ops program_options.cpp)
-  target_link_libraries(prog_ops PRIVATE ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+  target_link_libraries(prog_ops PRIVATE CONAN_PKG::boost)
 endif(MSVC)

@@ -18,4 +18,4 @@ add_executable(listing_16_18 listing_16_18.cpp)
 add_executable(listing_16_19 listing_16_19.cpp)
 catch_add_test(streams streams.cpp)
 
-target_link_libraries(streams PRIVATE ${Boost_SYSTEM_LIBRARY})
+target_link_libraries(streams PRIVATE CONAN_PKG::boost)

@@ -4,4 +4,4 @@ project(chapter_14 LANGUAGES CXX)
 
 catch_add_test(iterators iterators.cpp)
 
-target_link_libraries(iterators PRIVATE ${Boost_SYSTEM_LIBRARY})
+target_link_libraries(iterators PRIVATE CONAN_PKG::boost)

@@ -8,5 +8,5 @@ catch_add_test(rand rand.cpp)
 
 if(MSVC)
     catch_add_test(time time.cpp)
-    target_link_libraries(time PRIVATE ${Boost_LIBRARIES})
+    target_link_libraries(time PRIVATE CONAN_PKG::boost)
 endif(MSVC)

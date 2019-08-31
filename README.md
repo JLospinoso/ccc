@@ -6,30 +6,37 @@
 
 # Install Software
 
-1. Follow the instructions in Chapter 1 for setting up a development environment.
+1. [Download, install, and configure Conan](https://conan.io)
 2. [Download and install CMake](https://cmake.org/download/)
-3. [Download and install Boost](https://www.boost.org/doc/libs/1_68_0/more/getting_started/index.html)
 4. [Download and install Git](https://git-scm.com/downloads)
+
+For example, on a fresh Ubuntu 19.10 installation, you can do the following:
+
+```
+sudo apt update && sudo apt upgrade -y
+sudo apt install python3 python3-pip build-essential cmake git -y
+sudo python3 -m pip install --upgrade conan conan-package-tools
+conan profile new default --detect
+conan profile update settings.compiler.libcxx=libstdc++11 default
+```
+
 
 # Build the Examples
 
 [![Docker Repository on Quay](https://quay.io/repository/jlospinoso/ccc/status "Docker Repository on Quay")](https://quay.io/repository/jlospinoso/ccc)
 
-First, clone this repository:
+First, clone this repository. Next, use Conan to install dependencies and perform an [out-of-source CMake build](https://gitlab.kitware.com/cmake/community/wikis/home).
 
 ```
 git clone git@github.com:JLospinoso/ccc
+mkdir ccc/build && cd ccc/build
+conan install .. --build gtest --build bzip2 --build zlib --build boost
+CXX=g++-9 CC=gcc-9 cmake .. && make
 ```
 
-Next, perform an [out-of-source CMake build](https://gitlab.kitware.com/cmake/community/wikis/home). For example:
-
+If all goes well, you should be able to run all the test-based listings as follows:
 ```
-cd ccc
-git submodule init
-git submodule update
-mkdir build
-cd build
-cmake ..
+ctest --verbose
 ```
 
-Your build directory should now contain requisite files for building on your current platform. On Windows, for example, you should find a `.sln` Visual Studio Solution file. On macOS/Linux, you should find a `make` file.
+Refer to the [Conan IDE Integrations](https://docs.conan.io/en/latest/integrations/ides.html) for more information on using an IDE to follow along with these examples.
