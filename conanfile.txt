@@ -1,0 +1,8 @@
+[requires]
+Catch2/2.7.2@catchorg/stable
+boost/1.70.0@conan/stable
+gtest/1.8.1@bincrafters/stable
+
+[generators]
+cmake
+visual_studio
