@@ -1,18 +1,26 @@
-﻿#include <cstdint>
-#include <cstdio>
+﻿#include <cstdio>
 
-void randomize(uint32_t&);
+struct Tracer {
+  Tracer(const char* name) : name{ name } {
+    printf("%s constructed.\n", name);
+  }
+  ~Tracer() {
+    printf("%s destructed.\n", name);
+  }
+private:
+  const char* const name;
+};
 
 int main() {
-  size_t iterations{};
-  uint32_t number{ 0x4c4347 };
-  while(number != 0x474343) {
-    randomize(number);
-    ++iterations;
+  Tracer main{ "main" };
+  {
+    printf("Block a\n");
+    Tracer a1{ "a1" };
+    Tracer a2{ "a2" };
   }
-  printf("%zd", iterations);
-}
-
-void randomize(uint32_t& x) {
-  x = 0x3FFFFFFF & (0x41C64E6D * x + 12345) % 0x80000000;
+  {
+    printf("Block b\n");
+    Tracer b1{ "b1" };
+    Tracer b2{ "b2" };
+  }
 }
