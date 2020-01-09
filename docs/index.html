@@ -268,6 +268,8 @@ cmake ..</code></pre>
             <h3 class="pb-3 mb-4 font-italic border-bottom" id="errata">Errata</h3>
             <h5>To report an erratum, please submit an issue on Github <a href="https://github.com/JLospinoso/ccc/issues">https://github.com/JLospinoso/ccc/issues</a>.</h5>
             <ul>
+              <li><a href="https://github.com/JLospinoso/ccc/issues/93">p. 41</a> "The usual format specifiers for a size_t are %zd for a decimal representation
+or %zx for a hexadecimal representation." The correct format specifier for size_t is %zu, which is the unsigned version of %zd. This error appears consistenly throughout the remainder of the book!</li>
               <li><a href="https://github.com/JLospinoso/ccc/issues/44">p. 97</a> The C++ Standard says that thread_local variable lifetimes begin <i>at latest</i> upon first use by the thread. The text
               implies that the thread_local life time is similar to a static lifetime. You can modify Listing 4-6 by inserting the line "const auto t2_ptr = &t2;" at the very beginning of main, or at
               namespace scope.</li>
@@ -282,6 +284,7 @@ cmake ..</code></pre>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/54">p. liv</a> "the destructor cleans up file.file_pointer for you (2)" should read "...(3)"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/59">p. 18</a> "hexadecimal and octal output" shoud read "hexadecimal, decimal, and octal output"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/62">p. 21</a> "These symbols, // or /**/, tell the compiler" should read "The // symbol tells the compiler"</li>
+                <li><a href="https://github.com/JLospinoso/ccc/issues/92">p. 41</a> "C type in the <stddef> header" should read "C type in the C library header <stddef.h>"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/5">p. 62</a> "Whether array_5 is initialized or not..." Should read "Whether array_4 is initialized or not..."</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/30">p. 76</a> In Listing 3-7, "*(lower + 4)" and "*(upper_ptr + 4)" should read "*(lower + 3)" and "*(upper_ptr + 3)", respectively.</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/6">p. 78</a> "Each Element also contains a prefix array (5) and an operating_number
@@ -304,10 +307,12 @@ of 1000 (4)." should read "...of 10000 (4)."</li>
                     </p>
                 </li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/79">p. 137</a> (ebook only) The Note referring to  Chapters 20 and 21 of "The C + + Programming Language" (4th Edition, by Bjarne Stroustrup) should not contain hyperlinks.</li>
+                <li><a href="https://github.com/JLospinoso/ccc/issues/94">p. 145</a> In listing 5-13, "// Include Listing 5-10" should read "// Include Listing 5-10"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/23">p. 147</a> In Listing 5-14, "Bank(Logger* logger) : logger{ logger } ()" should read "Bank(Logger* logger) : logger{ logger } {}"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/80">p. 149</a> (ebook only) The Martha Stewart quote should read "The more you adapt, the more interesting you are."</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/86">p. 155</a> "Notice that you need to provide only a single template parameter, the
 return type, upon instantiation (1)(4)." should read "...upon instantiation (2)(5)."</li>
+                <li><a href="https://github.com/JLospinoso/ccc/issues/95">p. 158</a> In Listing 6-12, "char mean(const char* values, size_t length)" should read "size_t mean(const size_t* values, size_t length)" and "char result{};" should read "size_t result{}".</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/85">p. 159</a> "For example, if a template function’s return type is a template argument," should read "For example, if a template function’s return type is a template argument that's entirely independent of other function and template arguments,"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/81">p. 167</a> The paragraph "The concept is composed of three Boolean expressions AND-ed (&&) together: two type traits (1) (3) and a requires expression." should read as follows: "The concept is composed of a type trait (1) and a requires containing two requirement expressions (2) (3)."
                 </li>
@@ -323,7 +328,10 @@ return type, upon instantiation (1)(4)." should read "...upon instantiation (2)(
                     <b>colon.</b></li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/46">p. 241</a> "Implement a PrimeNumberRange class that can be used in a range exception to iterate over" should read "Implement a PrimeNumberRange class that can be used in a range expression to iterate over"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/11">p. 251</a> "..., you call va_list with the va_list structure" should read "..., you call va_end with the va_list structure"</li>
-                <li><a href="https://github.com/JLospinoso/ccc/issues/45">p. 277</a> Exercise 9-3, "template <typename Fn, typename In, typename Out>" should read "template <typename Fn, typename In>"</li>
+                <li><a href="https://github.com/JLospinoso/ccc/issues/87">p. 258</a> For clarity, the term "modifiers(5)" in the Lambda Usage listing should read "specifiers(5)".</li>
+                <li><a href="https://github.com/JLospinoso/ccc/issues/88">p. 261</a> In listing 9-7, "transform(translate, base_int, a, l); (5)" should read "transform(translate, base_int, a, len); (5)" and "transform(translate, base_float, b, l); (6)" should read "transform(translate, base_float, b, l); (6)"</li>
+                <li><a href="https://github.com/JLospinoso/ccc/issues/90">p. 277</a> Exercise 9-1, "print("Sum: %d\n", sum);" should read "printf("Sum: %d\n", sum);" </li>
+                <li><a href="https://github.com/JLospinoso/ccc/issues/45">p. 277</a> Exercise 9-3, "template &#60;typename Fn, typename In, typename Out&#62;" should read "template &#60;typename Fn, typename In&#62;"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/12">p. 284</a> Figure 10-1, the direction of the arrows, SpeedUpdate, CarDetected, BrakeCommand, are reversed.</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/26">p. 289</a> "That’s all you have to do; assert will throw an exception if the initial speed is zero." should read "isn't zero."</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/27">p. 291</a> "Listing 10-9: A unit test encoding the requirement that the initial speed be zero" should read "that the initial sensitivity is five"</li>
@@ -334,9 +342,13 @@ return type, upon instantiation (1)(4)." should read "...upon instantiation (2)(
                 <li><a href="https://github.com/JLospinoso/ccc/issues/14">p. 328</a> Table 10-2: "A&#60;type&#62;)()" should read "A&#60;type&#62;()"; "An&#60;type&#62;)()" should read "An&#60;type&#62;()"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/51">p. 336</a> "IServiceBusMock" should read "IServiceBus mock"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/40">p. 351</a> "ownership to son_of_aragorn. Because son_of_aragorn can" should read "ownership to son_of_arathorn. Because son_of_arathorn can"</li>
+                <li><a href="https://github.com/JLospinoso/ccc/issues/96">p. 359</a> "to convert Listing 11-12 to use a shared pointer" should read "to convert Listing 11-13 to use a shared pointer"</li>
+                <li><a href="https://github.com/JLospinoso/ccc/issues/100">p. 367</a> Listing 11-19: "my_alloc" should read "alloc"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/28">p. 368</a> Exercise 11-1: Should read "Reimplement Listing 11-13 to use a ..."</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/36">p. 382</a> Table 12-6, "Convenience function for constructing a tuple" should read "Convenience function for constructing a variant"</li>
+                <li><a href="https://github.com/JLospinoso/ccc/issues/101">p. 385</a> (ebook version only) '+boost::gregorian::date supports periods+' should read '"boost::gregorian::date supports periods"' </li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/37">p. 385</a> Table 12-8, "Returns the month portion of the date" should read "Creates a period from d to d+n_days"</li>
+                <li><a href="https://github.com/JLospinoso/ccc/issues/102">p. 391</a> "store into the time_per_addition variable (6)" should read "store into the time_per_division variable (6)"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/16">p. 404</a> Table 12-16, table header "Distribution" should read "Operation".</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/16">p. 404</a> The subtitle "A Partial List of Random Number Distributions" should read "A Partial List of Operations Available in &#60;ratio&#62;".</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/38">p. 431</a> "Constructs a priority_queue of Ts using ctr as its internal container and srt as its comparator object." should read "...and cmp as its comparator object."</li>
@@ -449,7 +461,7 @@ return type, upon instantiation (1)(4)." should read "...upon instantiation (2)(
             <p class="text-left">p. 87: <a href="https://github.com/isocpp/CppCoreGuidelines/">C++ Core
                 Guidelines</a></p>
 
-            <p class="text-left">p. 87: <a href="https://levelofindirection.com/">East End Functions</a></p>
+            <p class="text-left">p. 87: <a href="https://levelofindirection.com/blog/east-end-functions.html">East End Functions</a></p>
 
             <p class="text-left">p. 87: <a href="https://isocpp.org/wiki/faq/references/">References</a></p>
 
