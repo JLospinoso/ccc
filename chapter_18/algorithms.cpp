@@ -320,6 +320,13 @@ TEST_CASE("unique") {
 	REQUIRE(without_walls == "Wales");
 }
 
+TEST_CASE("reverse") {
+	string stinky = "diaper";
+	reverse(stinky.begin(), stinky.end());
+
+	REQUIRE(stinky == "repaid");
+}
+
 TEST_CASE("sort") {
   string goat_grass{ "spoilage" };
   sort(goat_grass.begin(), goat_grass.end());
