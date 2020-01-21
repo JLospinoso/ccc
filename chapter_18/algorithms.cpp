@@ -307,7 +307,7 @@ TEST_CASE("remove") {
 
   REQUIRE(pilgrim == "mng th thngs Blly Plgrm cld nt chng wr th pst, th prsnt, nd th ftr.present, and the future.");
 
-  pilgrim.resize(new_end - pilgrim.begin());
+  pilgrim.erase(new_end, pilgrim.end());
   REQUIRE(pilgrim == "mng th thngs Blly Plgrm cld nt chng wr th pst, th prsnt, nd th ftr.");
 }
 
