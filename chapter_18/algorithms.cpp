@@ -412,6 +412,12 @@ TEST_CASE("equal_range") {
   REQUIRE(rend == numbers.begin() + 5);
 }
 
+TEST_CASE("binary_search") {
+	vector<int> numbers{ 2, 4, 5, 6, 6, 9 };
+	REQUIRE(binary_search(numbers.begin(), numbers.end(), 6));
+	REQUIRE_FALSE(binary_search(numbers.begin(), numbers.end(), 7));
+}
+
 TEST_CASE("is_partitioned") {
   auto is_odd = [](auto x) { return x % 2 == 1; };
 
