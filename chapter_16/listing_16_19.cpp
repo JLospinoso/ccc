@@ -22,8 +22,8 @@ int main() {
     intro.seekg(0);
     cout << "Contents after seekg(0): " << intro.rdbuf() << endl;
     intro.seekg(-4, ios_base::end);
-    cout << "tellg() after seekg(4, ios_base::end): " << intro.tellg() << endl;
-    cout << "Contents after seekg(4, ios_base::end): " << intro.rdbuf() << endl;
+    cout << "tellg() after seekg(-4, ios_base::end): " << intro.tellg() << endl;
+    cout << "Contents after seekg(-4, ios_base::end): " << intro.rdbuf() << endl;
   } catch(exception& e) {
     cerr << e.what();
   }
