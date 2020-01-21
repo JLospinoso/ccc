@@ -384,9 +384,13 @@ TEST_CASE("is_sorted") {
 }
 
 TEST_CASE("nth_element") {
-  vector<int> numbers{ 1, 9, 2, 8, 3, 7, 4, 6, 5 };
-  nth_element(numbers.begin(), numbers.begin() + 5, numbers.end());
-  REQUIRE(numbers[5] == 6);
+	vector<int> numbers{ 1, 9, 2, 8, 3, 7, 4, 6, 5 };
+	nth_element(numbers.begin(), numbers.begin() + 5, numbers.end());
+	auto less_than_6th_elem = [&elem = numbers[5]](int x) {
+		return x < elem;
+	};
+	REQUIRE(all_of(numbers.begin(), numbers.begin() + 5, less_than_6th_elem));
+	REQUIRE(numbers[5] == 6);
 }
 
 TEST_CASE("lower_bound") {
