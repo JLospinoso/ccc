@@ -311,6 +311,15 @@ TEST_CASE("remove") {
   REQUIRE(pilgrim == "mng th thngs Blly Plgrm cld nt chng wr th pst, th prsnt, nd th ftr.");
 }
 
+TEST_CASE("unique") {
+	string without_walls = "Wallless";
+
+	const auto new_end = unique(without_walls.begin(), without_walls.end());
+	without_walls.erase(new_end, without_walls.end());
+
+	REQUIRE(without_walls == "Wales");
+}
+
 TEST_CASE("sort") {
   string goat_grass{ "spoilage" };
   sort(goat_grass.begin(), goat_grass.end());
