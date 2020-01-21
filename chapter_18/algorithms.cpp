@@ -462,16 +462,18 @@ TEST_CASE("merge") {
 }
 
 TEST_CASE("max and min") {
-  using namespace std::literals;
   auto length_compare = [](const auto& x1, const auto& x2) { return x1.length() < x2.length(); };
 
-  REQUIRE(min("undiscriminativeness"s, "vermin"s, length_compare) == "vermin");
+  string undisc="undiscriminativeness", vermin="vermin";
+  REQUIRE(min(undisc, vermin, length_compare) == "vermin");
 
-  REQUIRE(max("maxim"s, "ultramaximal"s, length_compare) == "ultramaximal");
+  string maxim="maxim", ultra="ultramaximal";
+  REQUIRE(max(maxim, ultra, length_compare) == "ultramaximal");
 
-  const auto result = minmax("minimaxes"s, "maximin"s, length_compare);
-  REQUIRE(result.first == "maximin");
-  REQUIRE(result.second == "minimaxes");
+  string mini="minimaxes", maxi="maximin";
+  const auto result = minmax(mini, maxi, length_compare);
+  REQUIRE(result.first == maxi);
+  REQUIRE(result.second == mini);
 }
 
 TEST_CASE("min and max element") {
