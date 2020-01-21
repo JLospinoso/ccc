@@ -366,14 +366,13 @@ TEST_CASE("stable_sort") {
 }
 
 TEST_CASE("partial_sort") {
-  string word1{ "nectarous" };
-  partial_sort(word1.begin(), word1.begin() + 4, word1.end());
-  REQUIRE(word1 == "acentrous");
+	string word1{ "nectarous" };
+	partial_sort(word1.begin(), word1.begin() + 4, word1.end());
+	REQUIRE(word1 == "acentrous");
 
-  string word2{ "pretanning" };
-  partial_sort(word2.begin(), word2.begin() + 3, word2.end(), ascension_compare);
-  REQUIRE(word2.front() == 't');
-  REQUIRE(word2.back() == 'g');
+	string word2{ "pretanning" };
+	partial_sort(word2.begin(), word2.begin() + 3, word2.end(), ascension_compare);
+	REQUIRE(word2 == "trepanning");
 }
 
 TEST_CASE("is_sorted") {
