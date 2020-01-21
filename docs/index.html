@@ -278,8 +278,9 @@ or %zx for a hexadecimal representation." The correct format specifier for size_
               <li><a href="https://github.com/JLospinoso/ccc/issues/109">p. 160</a> SimpleUniquePointer's parameterless
                 constructor should not be default. It should initialize the pointer member to nullptr. Also, the move assignment operator and the destructor do not need
                 to check if pointer equals nullptr. Deleting a nullptr is totally valid.</li>
-              <li><a href="https://github.com/JLospinoso/ccc/issues/28">p. 353</a> fclose returns an int. If it's successful, fclose returns 0, otherwise EOF. (See https://en.cppreference.com/w/c/io/fclose)</li>
-              <li><a href="https://github.com/JLospinoso/ccc/issues/140">p. 644</a> factorize in Listing 19-6 is not a proper integer factorization algorithm because it only retains the unique prime factors, not their powers. One possible fix is to replace std::set with std::multiset or std::vector to retain non-unique primes.</a></li>
+              <li><a href="https://github.com/JLospinoso/ccc/issues/28">p. 353</a> fclose returns an int. If it's successful, fclose returns 0, otherwise EOF. (See <a href="https://en.cppreference.com/w/c/io/fclose">https://en.cppreference.com/w/c/io/fclose</a>)</li>
+              <li><a href="https://github.com/JLospinoso/ccc/issues/138">p. 626</a> std::min, std::max, and std::minmax cannot accept temporary objects, since they return const references to their arguments. The min and max example has undefined behavior for this reason. The example should declare string variables and pass these instead. See <a href="https://github.com/JLospinoso/ccc/commit/1fad3b11c3c9a77c21968ec0efa5f8a8a85c4197">this commit</a> for one possible fix.></li>
+              <li><a href="https://github.com/JLospinoso/ccc/issues/140">p. 644</a> factorize in Listing 19-6 is not a proper integer factorization algorithm because it only retains the unique prime factors, not their powers. One possible fix is to replace std::set with std::multiset or std::vector to retain non-unique primes.</li>
             </ul>
         </div>
         <div class="col-md-8">
