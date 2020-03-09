@@ -294,11 +294,9 @@ or %zx for a hexadecimal representation." The correct format specifier for size_
                 <li><a href="https://github.com/JLospinoso/ccc/issues/92">p. 41</a> "C type in the <stddef> header" should read "C type in the C library header <stddef.h>"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/5">p. 62</a> "Whether array_5 is initialized or not..." Should read "Whether array_4 is initialized or not..."</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/30">p. 76</a> In Listing 3-7, "*(lower + 4)" and "*(upper_ptr + 4)" should read "*(lower + 3)" and "*(upper_ptr + 3)", respectively.</li>
-                <li><a href="https://github.com/JLospinoso/ccc/issues/6">p. 78</a> "Each Element also contains a prefix array (5) and an operating_number
-                    pointer (6)." Should read "... and an operating_number short."</li>
+                <li><a href="https://github.com/JLospinoso/ccc/issues/6">p. 78</a> "Each Element also contains a prefix array (5) and an operating_number pointer (6)." Should read "... and an operating_number short."</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/19">p. 80</a> "Next, you initialize another int called new_value to 200 and <b>assign it to original</b>(3)."</li>
-                <li><a href="https://github.com/JLospinoso/ccc/issues/74">p. 92</a> (ebook only) "Finally, you check whether waste_heat is over a threshold value
-of 1000 (4)." should read "...of 10000 (4)."</li>
+                <li><a href="https://github.com/JLospinoso/ccc/issues/74">p. 92</a> (ebook only) "Finally, you check whether waste_heat is over a threshold value of 1000 (4)." should read "...of 10000 (4)."</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/75">p. 100</a> "Handlers will catch a given type and any of its parents’ types." should read "...childrens' types."</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/32">p. 105</a> The Note should refer to Item 14, not Item 16 of Effective Modern C++ by Scott Meyers.</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/77">p. 110</a> In listing 4-16, (3) and (5) should read string.print("A") and string.print("B").</li>
@@ -317,12 +315,11 @@ of 1000 (4)." should read "...of 10000 (4)."</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/94">p. 145</a> In listing 5-13, "// Include Listing 5-10" should read "// Include Listing 5-10"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/23">p. 147</a> In Listing 5-14, "Bank(Logger* logger) : logger{ logger } ()" should read "Bank(Logger* logger) : logger{ logger } {}"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/80">p. 149</a> (ebook only) The Martha Stewart quote should read "The more you adapt, the more interesting you are."</li>
-                <li><a href="https://github.com/JLospinoso/ccc/issues/86">p. 155</a> "Notice that you need to provide only a single template parameter, the
-return type, upon instantiation (1)(4)." should read "...upon instantiation (2)(5)."</li>
+                <li><a href="https://github.com/JLospinoso/ccc/issues/86">p. 155</a> "Notice that you need to provide only a single template parameter, the return type, upon instantiation (1)(4)." should read "...upon instantiation (2)(5)."</li>
+                <li><a href="https://github.com/JLospinoso/ccc/issues/146">p. 156</a> "T(2) mean(T*(3) values, size_t length) {" should read "T(2) mean(const T*(3) values, size_t length) {"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/95">p. 158</a> In Listing 6-12, "char mean(const char* values, size_t length)" should read "size_t mean(const size_t* values, size_t length)" and "char result{};" should read "size_t result{}".</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/85">p. 159</a> "For example, if a template function’s return type is a template argument," should read "For example, if a template function’s return type is a template argument that's entirely independent of other function and template arguments,"</li>
-                <li><a href="https://github.com/JLospinoso/ccc/issues/81">p. 167</a> The paragraph "The concept is composed of three Boolean expressions AND-ed (&&) together: two type traits (1) (3) and a requires expression." should read as follows: "The concept is composed of a type trait (1) and a requires containing two requirement expressions (2) (3)."
-                </li>
+                <li><a href="https://github.com/JLospinoso/ccc/issues/81">p. 167</a> The paragraph "The concept is composed of three Boolean expressions AND-ed (&&) together: two type traits (1) (3) and a requires expression." should read as follows: "The concept is composed of a type trait (1) and a requires containing two requirement expressions (2) (3)."</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/24">p. 175</a> "element-type(param-name&)[array-length]" should read "element-type(&param-name)[array-length]"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/82">p. 175</a> "out_of_bounds" should read "std::out_of_range"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/9">p. 187</a> Listing 7-2 should throw a std::overflow_error at (4).</li>
@@ -331,9 +328,7 @@ return type, upon instantiation (1)(4)." should read "...upon instantiation (2)(
                 <li><a href="https://github.com/JLospinoso/ccc/issues/84">p. 200</a> "The address refers to the address of x (1) and prints 0 (2)." should read "The print_addr function prints the address of x (1) and the value of nullptr, 0 (2)."</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/10">p. 203</a> Listing 7-14 Caption, "A refactor of Listing 7-13 using a static_cast..." should read "A refactor of Listing 7-13 using a reinterpret_cast...".</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/144">p. 205</a> "whchar_t" should read "wchar_t".</li>
-                <li><a href="https://github.com/JLospinoso/ccc/issues/20">p. 239</a> To assign a label,
-                    prepend a statement with the desired name of the label followed by a
-                    <b>colon.</b></li>
+                <li><a href="https://github.com/JLospinoso/ccc/issues/20">p. 239</a> To assign a label, prepend a statement with the desired name of the label followed by a <b>colon.</b></li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/46">p. 241</a> "Implement a PrimeNumberRange class that can be used in a range exception to iterate over" should read "Implement a PrimeNumberRange class that can be used in a range expression to iterate over"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/11">p. 251</a> "..., you call va_list with the va_list structure" should read "..., you call va_end with the va_list structure"</li>
                 <li><a href="https://github.com/JLospinoso/ccc/issues/145">p. 252</a> "typename...Args" should read "typename... Args"</li>
