@@ -2,7 +2,7 @@
 
 # Get the Book
 
-[C++ Crash Course is currently avaiable at No Starch Press.](https://nostarch.com/cppcrashcourse)
+[C++ Crash Course is currently available at No Starch Press.](https://nostarch.com/cppcrashcourse)
 
 # Install Software
 
