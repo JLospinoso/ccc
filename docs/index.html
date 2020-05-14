@@ -275,6 +275,7 @@ or %zx for a hexadecimal representation." The correct format specifier for size_
               <li><a href="https://github.com/JLospinoso/ccc/issues/44">p. 97</a> The C++ Standard says that thread_local variable lifetimes begin <i>at latest</i> upon first use by the thread. The text
               implies that the thread_local life time is similar to a static lifetime. You can modify Listing 4-6 by inserting the line "const auto t2_ptr = &t2;" at the very beginning of main, or at
               namespace scope.</li>
+              <li><a href="https://github.com/JLospinoso/ccc/issues/173">p. 140</a> Listing 5-6 is misleading. <a href="https://github.com/JLospinoso/ccc/blob/master/chapter_5/listing_5_6.cpp">This updated listing</a> illustrates better how private members interact with inheritance.</li>
               <li><a href="https://github.com/JLospinoso/ccc/issues/109">p. 160</a> SimpleUniquePointer's parameterless
                 constructor should not be default. It should initialize the pointer member to nullptr. Also, the move assignment operator and the destructor do not need
                 to check if pointer equals nullptr. Deleting a nullptr is totally valid.</li>
