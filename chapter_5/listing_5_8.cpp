@@ -1,19 +1,19 @@
 #include <cstdio>
 
-struct BaseClass {};
+struct BaseClass {
+  virtual const char* final_message() const = 0;
+};
 
 struct DerivedClass : BaseClass {
-  DerivedClass() {
-    printf("DerivedClass() invoked.\n");
-  }
-  ~DerivedClass() {
-    printf("~DerivedClass() invoked.\n");
+  const char* final_message() const override {
+    return "We apologise for the inconvenience.";
   }
 };
 
 int main() {
-  printf("Constructing DerivedClass x.\n");
-  BaseClass* x{ new DerivedClass{} };
-  printf("Deleting x as a BaseClass*.\n");
-  delete x;
+  // BaseClass base; // Bang!
+  DerivedClass derived;
+  BaseClass& ref = derived;
+  printf("DerivedClass: %s\n", derived.final_message());
+  printf("BaseClass&:   %s\n", ref.final_message());
 }

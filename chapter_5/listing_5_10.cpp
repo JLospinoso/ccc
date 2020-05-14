@@ -1,6 +1,8 @@
 #include <cstdio>
 
-struct BaseClass {};
+struct BaseClass {
+  virtual ~BaseClass() = default;
+};
 
 struct DerivedClass : BaseClass {
   DerivedClass() {
