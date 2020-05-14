@@ -1,22 +1,21 @@
 #include <cstdio>
 
 struct BaseClass {
-  virtual const char* final_message() const {
-    return "We apologise for the incontinence.";
-  }
+  int the_answer() const { return 42; }
+  const char* member = "gold";
+private:
+  const char* holistic_detective = "Dirk Gently";
 };
 
 struct DerivedClass : BaseClass {
-  const char* final_message() const override {
-    return "We apologise for the inconvenience.";
+  void bad() {
+    // This line doesn't compile:
+    // printf("%s's Holistic Detective Agency\n", holistic_detective); {
   }
 };
 
 int main() {
-  BaseClass base;
-  DerivedClass derived;
-  BaseClass& ref = derived;
-  printf("BaseClass:    %s\n", base.final_message());
-  printf("DerivedClass: %s\n", derived.final_message());
-  printf("BaseClass&:   %s\n", ref.final_message());
+  DerivedClass x;
+  printf("The answer is %d\n", x.the_answer());
+  printf("%s member\n", x.member);
 }
