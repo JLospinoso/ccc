@@ -8,7 +8,7 @@ private:
 };
 
 struct DerivedClass : BaseClass {
-  void bad() {
+  void announce_agency() {
     // This line doesn't compile:
     // printf("%s's Holistic Detective Agency\n", holistic_detective); {
   }
