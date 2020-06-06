@@ -8,7 +8,7 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: rgb(0, 100, 128);
+  background-color: rgb(45, 45, 50);
 }
 
 body {
@@ -18,10 +18,18 @@ body {
 
 .card,
 .jumbotron {
-  background-color: rgba(0, 64, 92, .4);
+  background-color: rgba(25, 25, 30, 0.4);
 }
 
 pre {
   color: #ff1291;
-  text-shadow: 0 .05rem .1rem rgba(0, 64, 92, 0.78);
+  text-shadow: 0 .05rem .1rem rgba(25, 25, 30, 0.78);
+}
+
+.no-bullet {
+  list-style-type: none;
+}
+
+.jumbo-p {
+  padding: 15px;
 }
