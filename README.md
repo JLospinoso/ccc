@@ -1,17 +1,17 @@
 [![C++ Crash Course](http://ccc.codes/cppcc.png "C++ Crash Course")](http://ccc.codes/)
 
-# Get the Book
+# Get the Book from link given below
 
 [C++ Crash Course is currently available at No Starch Press.](https://nostarch.com/cppcrashcourse)
 
-# Install Software
+# Install the Software
 
 1. Follow the instructions in Chapter 1 for setting up a development environment.
 2. [Download and install CMake](https://cmake.org/download/)
 3. [Download and install Boost](https://www.boost.org/doc/libs/1_68_0/more/getting_started/index.html)
 4. [Download and install Git](https://git-scm.com/downloads)
 
-# Build the Examples
+# Build the Examples 
 
 [![Docker Repository on Quay](https://quay.io/repository/jlospinoso/ccc/status "Docker Repository on Quay")](https://quay.io/repository/jlospinoso/ccc)
 
