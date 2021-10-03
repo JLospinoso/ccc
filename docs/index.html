@@ -184,6 +184,14 @@ cmake ..</code></pre>
                     57: add ; after first } in second code block
                 </li>
                 <li>
+                    61: In discussing omission of fields from right to left, compilers will actually implicitly convert the bool to a char. So this is more accurate:
+                    <br>
+                    You can only omit fields from right to left, so the following (dangerously) will not do what the programmer probably intended:
+                    PodStruct initialized_pod4 = { 42, true };
+                    In this listing, member a initializes to 42, so far so good. Unfortunately, true implicitly converts to a char, and the result is that the first element of b is 1, while c is false.
+
+                </li>
+                <li>
                     62: In Warning section, change "Whether array_5" to "Whether array_4"
                 </li>
                 <li>
