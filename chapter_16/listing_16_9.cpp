@@ -5,7 +5,7 @@
 using namespace std;
 
 template <typename T>
-ostream& operator<<(ostream& s, vector<T> v) {
+ostream& operator<<(ostream& s, const vector<T>& v) {
   s << "Size: " << v.size() << "\nCapacity: " << v.capacity() << "\nElements:\n";
   for(const auto& element : v)
     s << "\t" << element << "\n";
